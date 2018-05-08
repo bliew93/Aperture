@@ -1,9 +1,10 @@
 import React from 'react';
 
-const rootReducer = () => {
-  return {
-
-  };
+const rootReducer = (state, action) => {
+  switch(action.type){
+    default:
+      return state;
+  }
 };
 
 export default rootReducer;
