@@ -1,0 +1,29 @@
+.form-container {
+  display: flex;
+  width: 500px;
+  height: 600px;
+  margin-left: auto;
+  background-color: white;
+}
+
+.form-contents {
+  background-color: white;
+  margin: auto;
+  text-align: center;
+}
+
+.form-header {
+  // margin-top: 90px;
+}
+
+label {
+  margin-bottom: 15px;
+  font-size: 14px;
+  color: #71767a;
+}
+
+input[type="submit"] {
+  border:1px solid red;
+  text-decoration:none;
+  font-family:helvetica;
+}
