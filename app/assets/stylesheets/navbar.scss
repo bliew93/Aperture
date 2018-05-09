@@ -14,11 +14,13 @@
 }
 
 .navbar-contents {
+  width: 100%;
   display: flex;
   justify-content: space-between;
 }
 
 .nav-links {
+  list-style: none;
 }
 
 .right-nav {

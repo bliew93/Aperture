@@ -4,6 +4,9 @@
   height: 600px;
   margin-left: auto;
   background-color: white;
+  position: absolute;
+  top: 100px;
+  left: 40%;
 }
 
 .form-contents {
@@ -13,12 +16,13 @@
 }
 
 .form-header {
-  // margin-top: 90px;
+  font-size: 30px;
+  margin-bottom: 20px;
 }
 
 label {
   margin-bottom: 15px;
-  font-size: 14px;
+  font-size: 22px;
   color: #71767a;
 }
 

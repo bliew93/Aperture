@@ -2,3 +2,33 @@
   height: 800px;
   background: image-url('splash_background.jpg') 70% no-repeat ;
 }
+
+.inspired-message {
+  font-style: sans-serif;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  color: white;
+  position: absolute;
+  top: 30%;
+  left: 30%;
+}
+
+.inspired-message > h1 {
+  font-size: 48px;
+  padding-bottom:40px;
+}
+
+.inspired-message > h2 {
+  font-size: 24px;
+  padding-bottom: 40px;
+}
+
+.inspired-message > a {
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.inspired-message > a:hover {
+  background-color: #52c6ff;
+}
