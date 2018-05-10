@@ -3,10 +3,10 @@
   display: flex;
   width: 400px;
   height: 450px;
-  margin: auto;
   background-color: white;
-  position: relative;
-  top: 70px;
+  position: absolute;
+  top: 191px;
+  left: 750px;
   padding: 85px 40px 25px;
 }
 
@@ -33,6 +33,11 @@
   padding: 6px;
 }
 
+.form-contents input:focus {
+  background-color: #FBDADA;
+
+}
+
 .form-contents input[type="submit"] {
   background-color: #41cb56;
   display: block;
@@ -44,6 +49,10 @@
   padding-top: 7px;
   padding-bottom: 7px;
   margin-top: 11px;
+}
+
+.form-contents input[type="submit"]:hover {
+  background-color: #66d577;
 }
 
 .form-header {

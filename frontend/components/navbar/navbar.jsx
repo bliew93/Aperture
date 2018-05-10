@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 // maybe have it be part of a navbar container later
 const Navbar = (props) =>  {
@@ -20,7 +20,7 @@ const Navbar = (props) =>  {
   const loggedOutUser = () => {
     return (
       <nav className="right-nav">
-        <Link to="/login">Log In</Link>
+        <Link to="/login">Log in</Link>
         <Link to="/signup" className="signup">Sign Up</Link>
       </nav>
     );
@@ -40,4 +40,4 @@ const Navbar = (props) =>  {
   );
 };
 
-export default Navbar;
+export default withRouter(Navbar);

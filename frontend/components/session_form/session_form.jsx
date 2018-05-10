@@ -50,7 +50,6 @@ class SessionForm extends React.Component {
   render(){
     const header = this.props.formType === 'login' ? 'Log In to Aperture' : 'Join Aperture';
     const submitText = this.props.formType === 'login' ? 'Log in' : 'Sign up';
-
     let altLink;
     if(this.props.formType === 'login'){
       altLink = (
@@ -72,7 +71,7 @@ class SessionForm extends React.Component {
     });
 
     return (
-      <div className="form-container">
+      <div className="form-container" >
         <ul className="errors">
           {errors}
         </ul>
