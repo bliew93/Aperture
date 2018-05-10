@@ -46,10 +46,53 @@
   margin-top: 11px;
 }
 
-
-
 .form-header {
   font-size: 30px;
-  margin-top: -265px;
+  text-align: center;
+  margin-top: -165px;
   margin-bottom: 27px;
+}
+
+.line-divider {
+  margin-top: 40px;
+  width: 100%;
+}
+
+.demo-login {
+  margin: 0 auto;
+  display: flex;
+  position: relative;
+  top: 130px;
+  color: #71767a;
+  font-size: 12px;
+}
+
+.alt-form-link {
+  margin: auto;
+  display: flex;
+  position: relative;
+  top: 140px;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.alt-form-link > span {
+  color: #71767a;
+}
+.alt-form-link > a {
+  margin-left: 5px;
+  color: #0099e5;
+}
+
+.errors {
+  display: flex;
+  position: fixed;
+  top: 86px;
+  color: red;
+  flex-direction: column;
+}
+
+.errors > li {
+  display: block;
+  margin-bottom: 5px;
 }
