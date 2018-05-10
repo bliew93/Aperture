@@ -4,16 +4,15 @@ import { Link, withRouter } from 'react-router-dom';
 // maybe have it be part of a navbar container later
 const Navbar = (props) =>  {
   let rightNav;
-
   // user will need a drop down menu later
   // there will need an upload photo button here
   const loggedInUser = () => {
     return (
       <nav className="right-nav">
         <h2>{props.currentUser.username}</h2>
-        <img src={props.currentUser.image_url}></img>
-          <Link to="/">Upload Photo</Link>
-        <button onClick={props.logout}>Log Out</button>
+        <img src={props.currentUser.image_url} className="profile-picture"></img>
+          <Link to="/" className="upload-photo">Upload Photo</Link>
+        <button onClick={props.logout} className='logout-button'>Log Out</button>
       </nav>
     );
   };

@@ -53,6 +53,7 @@
   font-size: 20px;
   text-decoration: none;
   margin-left: 30px;
+  margin-right: 30px;
 }
 
 .signup:hover {
@@ -69,14 +70,18 @@
   padding: 0px 20px;
 }
 
-// for the a href links
-// button {
-//   background-color: #0099e5;
-//   border-color: #0099e5;
-// }
-//
-// button:hover {
-//   background-color: #00aaff;
-//   border-color: #00aaff;
-// }
-//
+.profile-picture {
+  height: 60px;
+  width: 60px;
+  position: relative;
+  margin-top: -15px;
+  margin-left: 15px;
+}
+
+.upload-photo {
+  font-size: 12px;
+}
+
+.logout-button {
+  margin-right: 20px;
+}
