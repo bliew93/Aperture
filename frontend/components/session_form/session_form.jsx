@@ -26,6 +26,7 @@ class SessionForm extends React.Component {
 
   render(){
     const header = this.props.formType === 'login' ? 'Log In to Aperture' : 'Join Aperture';
+    const submitText = this.props.formType === 'login' ? 'Log in' : 'Sign up';
     const errors = this.props.errors.map((error, idx) =>{
       return <li key={idx}>{error}</li>;
     });
@@ -39,6 +40,7 @@ class SessionForm extends React.Component {
 
           <h2 className="form-header">{header}</h2>
           <label>Username</label>
+
           <br></br>
           <input type="text" onChange={this.update("username")} value={this.state.username}></input>
 
@@ -52,7 +54,7 @@ class SessionForm extends React.Component {
           <br></br>
           <br></br>
 
-          <input type="submit" onClick={this.handleSubmit}></input>
+          <input type="submit" onClick={this.handleSubmit} value={submitText}></input>
         </form>
       </div>
     );

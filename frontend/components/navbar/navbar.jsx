@@ -9,35 +9,33 @@ const Navbar = (props) =>  {
   // there will need an upload photo button here
   const loggedInUser = () => {
     return (
-      <div className="right-nav">
+      <nav className="right-nav">
         <h2>{props.currentUser.username}</h2>
         <button onClick={props.logout}>Log Out</button>
-      </div>
+      </nav>
     );
   };
 
   const loggedOutUser = () => {
     return (
-      <div className="right-nav">
+      <nav className="right-nav">
         <Link to="/login">Log In</Link>
         <Link to="/signup" className="signup">Sign Up</Link>
-      </div>
+      </nav>
     );
   };
 
   props.currentUser ? rightNav = loggedInUser() : rightNav = loggedOutUser(); // jshint ignore:line
   return (
-    <div className="navbar">
-      <nav className="navbar-contents">
-        <Link to="/"><img className="logo" src="/assets/logo_trans.png" ></img>
-
-        </Link>
+    <header className="main-nav">
+      <nav className="left-nav">
+        <Link to="/"><img className="logo" src={window.staticImages.logo}></img></Link>
         <ul className="nav-links">
-          <li>Discover</li>
         </ul>
-        {rightNav}
       </nav>
-    </div>
+
+      {rightNav}
+    </header>
   );
 };
 

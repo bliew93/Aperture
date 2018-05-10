@@ -1,0 +1,74 @@
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  z-index: 1;
+  position: fixed;
+  width: 100%;
+  height: 50px;
+}
+
+.main-nav a {
+  color: lightgrey;
+}
+
+.left-nav {
+  flex-direction: row;
+}
+
+.left-nav > ul {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-contents {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  height: 59px;
+  width: 61px;
+  position: relative;
+  top: -1px;
+  right: -21px;
+}
+
+.nav-links {
+  list-style: none;
+}
+
+.right-nav {
+  display: flex;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.right-nav > a {
+  font-size: 20px;
+  text-decoration: none;
+  margin-left: 30px;
+}
+
+.signup {
+  background-color: #0099e5;
+  margin-right: 20px;
+  margin-bottom: 3px;
+  margin-top: -2px;
+  border: 1px solid #0099e5;
+  border-radius: 30px;
+  padding: 0 15px;
+}
+
+// for the a href links
+// button {
+//   background-color: #0099e5;
+//   border-color: #0099e5;
+// }
+//
+// button:hover {
+//   background-color: #00aaff;
+//   border-color: #00aaff;
+// }
+//

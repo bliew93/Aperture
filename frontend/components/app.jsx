@@ -11,9 +11,7 @@ const App = () => {
 
   return (
     <div className="home">
-      <header className="header-nav">
         <NavbarContainer />
-      </header>
 
       <Switch>
         <AuthRoute exact path="/login" component={LoginFormContainer} />
