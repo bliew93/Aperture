@@ -11,6 +11,7 @@ const Navbar = (props) =>  {
     return (
       <nav className="right-nav">
         <h2>{props.currentUser.username}</h2>
+        <img src={props.currentUser.image_url}></img>
           <Link to="/">Upload Photo</Link>
         <button onClick={props.logout}>Log Out</button>
       </nav>
