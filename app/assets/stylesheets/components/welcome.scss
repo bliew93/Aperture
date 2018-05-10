@@ -5,14 +5,14 @@
 }
 
 .inspired-message {
-  font-style: sans-serif;
+  font-family: 'Roboto', sans-serif;
   display: flex;
   text-align: center;
   flex-direction: column;
   color: white;
   position: absolute;
-  top: 55%;
-  left: 18%;
+  top: 50%;
+  left: 28%;
 }
 
 .inspired-message > h1 {

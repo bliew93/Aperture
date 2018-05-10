@@ -1,39 +1,51 @@
 .form-container {
+  font-family: 'Roboto', sans-serif;
   display: flex;
-  width: 500px;
-  height: 600px;
+  width: 400px;
+  height: 450px;
   margin: auto;
   background-color: white;
   position: relative;
   top: 70px;
+  padding: 85px 40px 25px;
 }
 
 .form-contents {
   margin: auto;
-  // text-align: center;
+  width: 100%;
+}
+
+.form-contents h2 {
+  color: #686868;
 }
 
 .form-contents label {
   color: grey;
   font-size: 14px;
+  width: 100%;
+  height: 28px;
 }
 
 .form-contents input {
   border: 1px solid rgba(185, 193, 199, 0.5);
+  width: 100%;
+  margin-top: 9px;
+  padding: 6px;
 }
 
 .form-contents input[type="submit"] {
   background-color: #41cb56;
   display: block;
   margin: auto;
-  padding-left: 78px;
-  padding-right: 78px;
-  margin-left: -1px;
   color: white;
-  padding-top: 6px;
-  padding-bottom: 6px;
+  width: 100%;
   font-weight: bold;
+  text-align: center;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  margin-top: 11px;
 }
+
 
 
 .form-header {
