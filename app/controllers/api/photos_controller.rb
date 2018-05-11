@@ -1,4 +1,11 @@
 class Api::PhotosController < ApplicationController
+  def index
+    # Will change this to only show all of current user's photos and
+    # current user's followed users photos on home feed
+    @photos = Photo.all
+    render 'api/photos/index'
+  end
+
   def create
     @photo = current_user.photos.create(photo_params)
     if @photo.save
@@ -15,7 +22,7 @@ class Api::PhotosController < ApplicationController
 
   def update
     @photo = current_user.photos.find(params[:id])
-    if @photo.update
+    if @photo.update(photo_params)
       render 'api/photos/show'
     else
       render json: @photo.errors.full_messages, status: 422
@@ -30,6 +37,6 @@ class Api::PhotosController < ApplicationController
 
   private
   def photo_params
-    params.require(:photo).permit(:image_url, :title, :body)
+    params.require(:photo).permit(:title, :body)
   end
 end
