@@ -1,5 +1,33 @@
+.modal-child {
+  width: 92%;
+  height: 92%;
+  top: 47%;
+}
+
 .upload-photo-container {
-  background-color: white;
-  width: 500px;
-  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: white
+}
+
+.select-photos-upload {
+  color: white;
+  padding: 8px 35px 8px 35px;
+  background-color: #0099e5;
+  border: 1px solid #0099e5;
+  border-radius: 2px;
+  text-align: center;
+  font-weight: bold;
+  font-family: 'roboto';
+}
+
+.select-photos-upload:hover {
+  background-color: #32adea;
+}
+
+#file {
+  display: none;
 }

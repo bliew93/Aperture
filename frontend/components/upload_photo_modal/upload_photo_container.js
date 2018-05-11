@@ -12,8 +12,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     createPhoto: (photo) => dispatch(createPhoto(photo)),
-    closeModal: () => dispatch(closeModal())
+    closeModal: () => dispatch(closeModal()),
+    openModal: (modalType) => dispatch(openModal(modalType))
   };
 };
 
-export default connect(null, mapDispatchToProps)(UploadPhoto);
+export default connect(mapStateToProps, mapDispatchToProps)(UploadPhoto);

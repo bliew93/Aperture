@@ -10,43 +10,7 @@ const Welcome = () => {
         <h2>Find your home among the world's best photographers</h2>
         <Link to="/signup" className="signup">Join Aperture</Link>
       </div>
-
-      <div className="photo-grid">
-        <div className="photo-row">
-          <div className="photo-container">
-            <div className="photo-pic"></div>
-            <div className="photo-info"></div>
-          </div>
-
-          <div className="photo-container">
-            <div className="photo-pic"></div>
-            <div className="photo-info"></div>
-          </div>
-
-          <div className="photo-container">
-            <div className="photo-pic"></div>
-            <div className="photo-info"></div>
-          </div>
-        </div>
-
-        <div className="photo-row">
-          <div className="photo-container">
-            <div className="photo-pic"></div>
-            <div className="photo-info"></div>
-          </div>
-
-          <div className="photo-container">
-            <div className="photo-pic"></div>
-            <div className="photo-info"></div>
-          </div>
-
-          <div className="photo-container">
-            <div className="photo-pic"></div>
-            <div className="photo-info"></div>
-          </div>
-        </div>
-      </div>
-
+      
       <section className="full-features">
       </section>
 

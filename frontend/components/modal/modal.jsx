@@ -2,16 +2,20 @@ import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import UploadPhotoContainer from '../upload_photo_modal/upload_photo_container';
+import PreSubmitPhotos from '../pre_submit_modal/pre_submit_photos';
 
 function Modal({modal, closeModal}) {
   if (!modal) {
     return null;
   }
   let component;
-  //upload photo, view photo, edit photo
+  //upload photo, pre-submit, view photo, edit photo
   switch (modal) {
     case 'upload':
       component = <UploadPhotoContainer />;
+      break;
+    case 'pre-submit':
+      component = <PreSubmitPhotos />;
       break;
     default:
       return null;

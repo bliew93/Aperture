@@ -20,7 +20,7 @@ const Navbar = (props) =>  {
   const loggedOutUser = () => {
     return (
       <nav className="right-nav">
-        <Link to="/login">Log in</Link>
+        <Link to="/login" className='login'>Log in</Link>
         <Link to="/signup" className="signup">Sign Up</Link>
       </nav>
     );
