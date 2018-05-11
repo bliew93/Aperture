@@ -21,7 +21,7 @@ class UploadPhoto extends React.Component {
   parseFiles(file, idx, filesCount) {
     const reader = new FileReader();
     reader.onloadend = () => {
-      this.tempPhotoState = this.tempPhotoState.concat( { imageUrl: reader.result, imageFile: file} );
+      this.tempPhotoState = this.tempPhotoState.concat( { id: idx, imageUrl: reader.result, imageFile: file} );
       window.tempPhotoState = this.tempPhotoState;
 
       // once async action completes, render the PreSubitPhotos component
@@ -43,8 +43,6 @@ class UploadPhoto extends React.Component {
             onClick={() => document.getElementById('file').click()}>Select Photos
           </button>
           <input type="file" id="file" multiple="multiple" onChange={this.updateFiles}></input>
-
-          <button onClick={() => this.props.openModal('pre-submit')}>Go to pre-submit</button>
         </div>
       </div>
     );
