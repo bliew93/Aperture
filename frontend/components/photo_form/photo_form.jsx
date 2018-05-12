@@ -29,11 +29,10 @@ class PhotoForm extends React.Component {
     if (file) {
       formData.append("photo[image]", file);
     }
-    debugger
-    this.props.processForm(formData, this.setState({ title: "", body: "" })
-);
-    // this.props.processForm(photo);
 
+    this.props.processForm(formData, this.setState({ title: "", body: "" }));
+    this.props.closeModal();    
+    // this.props.processForm(photo);
   }
 
 
@@ -44,14 +43,14 @@ class PhotoForm extends React.Component {
     });
 
     return (
-      <div className="form-container" >
+      <div className="photo-form-container" >
         <ul className="errors">
           {errors}
         </ul>
 
-        <form className="form-contents">
+        <form className="photo-form-contents">
 
-          <h2 className="form-header">{'Create Photo'}</h2>
+          <h2 className="photo-form-header">{'Create Photo'}</h2>
           <label>Title</label>
 
           <br></br>
