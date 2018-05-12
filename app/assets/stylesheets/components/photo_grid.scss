@@ -1,24 +1,24 @@
-.photo-grid {
+.photo-grid-container {
 
 }
 
-.photo-row {
-
-
-}
-
-.photo-container {
+.photo-grid-contents {
 
 }
 
-.photo-container:hover {
+.photo-item {
 
 }
 
-.photo-pic {
+.photo-item a {
 
 }
 
-.photo-info {
+.photo-item img {
+  width: 200px;
+  height: 200px;
+}
 
+.photo-item-selected {
+  border: 1px solid red;
 }

@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link, withRouter, Redirect } from 'react-router-dom';
+import { merge } from 'lodash';
 
 class PhotoForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.props.photo;
+    this.state = this.props.photos;
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -13,26 +14,28 @@ class PhotoForm extends React.Component {
   }
 
   update(field){
-    return e => this.setState({ [field]: e.currentTarget.value });
+    let newState = merge({}, this.state);
+    return e => this.setState( merge(newState, {[this.props.selectedPhoto]: { [field]: e.currentTarget.value }}) );
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    // const photo = Object.assign({}, this.state);
+    // will need to improve this. Independent hits to backend not efficient
+    for(let photo in this.state){
+      const file = window.tempPhotoState[photo].imageFile;
 
-    const file = window.tempPhotoState[0].imageFile;
+      const formData = new FormData();
+      formData.append("photo[title]", this.state[photo].title);
+      formData.append("photo[body]", this.state[photo].body);
 
-    const formData = new FormData();
-    formData.append("photo[title]", this.state.title);
-    formData.append("photo[body]", this.state.body);
+      if (file) {
+        formData.append("photo[image]", file);
+      }
 
-    if (file) {
-      formData.append("photo[image]", file);
+      this.props.processForm(formData);
     }
-
-    this.props.processForm(formData, this.setState({ title: "", body: "" }));
-    this.props.closeModal();    
-    // this.props.processForm(photo);
+    delete window.tempPhotoState;
+    this.props.closeModal();
   }
 
 
@@ -54,19 +57,19 @@ class PhotoForm extends React.Component {
           <label>Title</label>
 
           <br></br>
-          <input type="text" onChange={this.update("title")} value={this.state.title}></input>
+          <input type="text" onChange={this.update("title")} value={this.state[this.props.selectedPhoto].title}></input>
 
           <br></br>
           <br></br>
 
           <label>Body</label>
           <br></br>
-          <textarea onChange={this.update("body")} value={this.state.body}></textarea>
+          <textarea onChange={this.update("body")} value={this.state[this.props.selectedPhoto].body}></textarea>
 
           <br></br>
           <br></br>
 
-          <input type="submit" onClick={this.handleSubmit} value={'Submit Photo'}></input>
+          <input type="submit" onClick={this.handleSubmit} value={'Submit Photo(s)'}></input>
         </form>
 
       </div>

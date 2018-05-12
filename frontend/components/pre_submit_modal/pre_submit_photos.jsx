@@ -1,25 +1,35 @@
 import React from 'react';
 import ImageModal from '../image_modal/image_modal';
 import PhotoCreateFormContainer from '../photo_form/photo_create_form_container';
+import UploadPhotosGrid from '../photo_grid/upload_photos_grid';
 
-const PreSubmitPhotos = (props) => {
-  // instead of this, implement the photo grid
-  const allPhotos = window.tempPhotoState.map( (photo, idx) => {
-    return <img src={photo.imageUrl} key={idx} className="grid-photo"></img>;
-  });
+class PreSubmitPhotos extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {selectedPhoto: 0 };
+    this.updateSelectedPhoto = this.updateSelectedPhoto.bind(this);
+  }
+
+  updateSelectedPhoto(photoId) {
+    this.setState({ selectedPhoto: photoId });
+  }
 
   // on submit, delete window.tempPhotoState
-  // change this to the photo grid
-  return (
-    <div className='pre-submit-photos'>
-      <div className='photo-images'>
-        {allPhotos}
+  render(){
+    return (
+      <div className='pre-submit-photos'>
+        <div className='photo-images'>
+          <UploadPhotosGrid photos={window.tempPhotoState}
+            updateSelectedPhoto={this.updateSelectedPhoto}
+            selectedPhoto={this.state.selectedPhoto}/>
+        </div>
+        <div className='CreateForm'>
+          <PhotoCreateFormContainer selectedPhoto={this.state.selectedPhoto}/>
+        </div>
       </div>
-      <div className='CreateForm'>
-        <PhotoCreateFormContainer />
-      </div>
-    </div>
-  );
-};
+    );
+
+  }
+}
 
 export default PreSubmitPhotos;

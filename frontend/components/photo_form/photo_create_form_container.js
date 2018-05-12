@@ -4,10 +4,17 @@ import { createPhoto, clearErrors } from '../../actions/photo_actions';
 import { closeModal } from '../../actions/modal_actions';
 
 const mapStateToProps = (state, ownProps) => {
+  let photos = {};
+  if(window.tempPhotoState) {
+    for (var i = 0; i < window.tempPhotoState.length; i++) {
+      Object.assign(photos, {[window.tempPhotoState[i].id]: {title: '', body: ''}});
+    }
+  }
+
   return {
     errors: state.errors.photo,
     formType: 'create',
-    photo: { title: '', body: ''}
+    photos: photos || { 0: {title: '', body: ''} }
   };
 };
 
