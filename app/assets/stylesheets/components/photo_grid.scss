@@ -1,24 +1,36 @@
 .photo-grid-container {
-
+  display: flex;
+  width: 100%;
 }
 
 .photo-grid-contents {
-
+  display: flex;
+  flex-flow: row wrap;
+  margin: 15px 15px 15px 15px;
+  width: 100%;
+  align-content: flex-start;
 }
 
-.photo-item {
-
+div[class^="photo-grid-item"] {
+  flex: auto;
+  height: fit-content;
+  min-width: 150px;
+  margin: 8px 8px 8px 8px;
+  overflow: hidden;
+  border-radius: 5px;
+  background-color: #333;
+  color: white;
+  position: relative;
+  max-width: 300px;
 }
 
-.photo-item a {
-
-}
-
-.photo-item img {
-  width: 200px;
-  height: 200px;
-}
-
-.photo-item-selected {
+.photo-grid-item-selected {
   border: 1px solid red;
+}
+
+div[class^="photo-grid-item"] img {
+  object-fit: cover;
+  max-width: 100%;
+  max-height: 100%;
+  vertical-align: middle;
 }
