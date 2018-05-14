@@ -9,10 +9,6 @@ class PhotoForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentWillMount() {
-
-  }
-
   componentWillUnmount() {
     this.props.clearErrors();
   }

@@ -6,6 +6,15 @@ class PhotoShow extends React.Component {
   }
   // props.history.goBack to go back to profile page
   componentDidMount(){
+    if(!Boolean(this.props.photo)){
+      this.props.fetchPhoto(this.props.match.params.photoId);
+    }
+    else {
+      this.props.openModal({modalType: this.props.modalType, photo: this.props.photo});
+    }
+  }
+
+  componentDidUpdate() {
     this.props.openModal({modalType: this.props.modalType, photo: this.props.photo});
   }
 

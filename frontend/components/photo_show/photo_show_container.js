@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import PhotoShow from './photo_show';
 import { openModal, closeModal } from '../../actions/modal_actions';
+import { fetchPhoto } from '../../actions/photo_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return{
@@ -9,10 +10,11 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    closeModal: () => dispatch(closeModal()),
-    openModal: (modal) => dispatch(openModal(modal))
+    fetchPhoto: (photoId) => dispatch(fetchPhoto(photoId)),
+    openModal: (modal) => dispatch(openModal(modal)),
+    closeModal: () =>  dispatch(closeModal())
   };
 };
 
