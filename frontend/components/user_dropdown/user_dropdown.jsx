@@ -5,8 +5,9 @@ const UserDropdown = (props) => {
   return (
     <ul id="user-dropdown" className="user-dropdown hidden">
 			<li><Link to={`/users/${props.currentUser.id}`}>My Profile</Link></li>
-      <li><a href="#">Manage Avatar</a></li>
-			<li><a href="#" onClick={props.logout} className='logout-button'>Log out</a></li>
+      <li className="manage-profile"><a href="#">Manage Profile</a></li>
+      <li className="manage-photos"><a href="#">Manage Photos</a></li>
+			<li className='logout-button'><a href="#" onClick={props.logout}>Log out</a></li>
   </ul>
   );
 };

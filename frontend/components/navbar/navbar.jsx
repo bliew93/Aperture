@@ -38,7 +38,7 @@ class Navbar extends React.Component {
 
         <div className='upload-button'>
           <button onClick={() => this.props.openModal({ modalType: 'upload' })}>
-            <i className="fas fa-cloud-upload-alt"></i>
+            <i className="material-icons">cloud_upload</i><span>Upload</span>
           </button>
         </div>
       </nav>
