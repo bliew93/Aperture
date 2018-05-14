@@ -1,5 +1,7 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
+import PhotoGrid from '../photo_grid/photo_grid';
+
 class ProfilePage extends React.Component {
   constructor(props) {
     super(props);
@@ -16,18 +18,18 @@ class ProfilePage extends React.Component {
   }
 
   render() {
-    const allUserPhotos = this.props.photos.map( (photo) => {
-      return (
-        <div className="photo-grid-item" key={photo.id}>
-          <img src={photo.image_url}></img>
-        </div>
-      );
-    });
-
     return (
-      <div>
-        <h1>{this.props.user ? this.props.user.username : ''}</h1>
-        {allUserPhotos}
+      <div className="profile-container">
+        <div className="profile-contents">
+          <div className="profile-cover-photo"></div>
+          <div className="profile-user-avatar">
+            <img src={this.props.user.image_url}></img>
+          </div>
+          <h1 className="profile-page-user">{this.props.user ? this.props.user.username : ''}</h1>
+          <div className="profile-user-details"></div>
+
+          <PhotoGrid photos={this.props.photos} />
+        </div>
       </div>
     );
   }

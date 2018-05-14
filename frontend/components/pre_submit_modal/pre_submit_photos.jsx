@@ -14,8 +14,7 @@ class PreSubmitPhotos extends React.Component {
     this.setState({ selectedPhoto: photoId });
   }
 
-  // on submit, delete window.tempPhotoState
-  render(){
+  render() {
     return (
       <div className='pre-submit-photos'>
         <div className='photo-images'>
