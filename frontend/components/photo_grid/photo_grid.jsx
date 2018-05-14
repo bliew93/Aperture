@@ -8,8 +8,9 @@ const PhotoGrid = ({ photos }) => {
   const allPhotos = photosArr.map( (photo) => {
     return (
       <div className="photo-grid-item$" key={photo.id}>
-        <Link to={`/photo/${photo.id}`}></Link>
-        <img src={photo.image_url}></img>
+        <Link to={`/photo/${photo.id}`}>
+          <img src={photo.image_url}></img>
+        </Link>
       </div>
     );
   });
