@@ -18,12 +18,12 @@ class PreSubmitPhotos extends React.Component {
     return (
       <div className='pre-submit-photos'>
         <div className='photo-images'>
-          <UploadPhotosGrid photos={window.tempPhotoState}
+          <UploadPhotosGrid photos={this.props.photos}
             updateSelectedPhoto={this.updateSelectedPhoto}
             selectedPhoto={this.state.selectedPhoto}/>
         </div>
         <div className='CreateForm'>
-          <PhotoCreateFormContainer selectedPhoto={this.state.selectedPhoto}/>
+          <PhotoCreateFormContainer selectedPhoto={this.state.selectedPhoto} photos={this.props.photos}/>
         </div>
       </div>
     );

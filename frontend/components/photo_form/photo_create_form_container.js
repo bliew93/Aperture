@@ -5,9 +5,9 @@ import { closeModal } from '../../actions/modal_actions';
 
 const mapStateToProps = (state, ownProps) => {
   let photos = {};
-  if(window.tempPhotoState) {
-    for (var i = 0; i < window.tempPhotoState.length; i++) {
-      Object.assign(photos, {[window.tempPhotoState[i].id]: {title: '', body: ''}});
+  if(ownProps.photos) {
+    for (var i = 0; i < ownProps.photos.length; i++) {
+      Object.assign(photos, {[ownProps.photos[i].id]: {title: '', body: ''}});
     }
   }
 

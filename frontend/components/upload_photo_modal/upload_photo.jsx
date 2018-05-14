@@ -22,11 +22,9 @@ class UploadPhoto extends React.Component {
     const reader = new FileReader();
     reader.onloadend = () => {
       this.tempPhotoState = this.tempPhotoState.concat( { id: idx, imageUrl: reader.result, imageFile: file} );
-      window.tempPhotoState = this.tempPhotoState;
 
-      // once async action completes, render the PreSubitPhotos component
-      if(filesCount === window.tempPhotoState.length){
-        this.props.openModal('pre-submit');
+      if(filesCount === this.tempPhotoState.length){
+        this.props.openModal({ modalType: 'pre-submit', photos: this.tempPhotoState });
       }
     };
 

@@ -13,7 +13,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     createPhoto: (photo) => dispatch(createPhoto(photo)),
     closeModal: () => dispatch(closeModal()),
-    openModal: (modalType) => dispatch(openModal(modalType))
+    openModal: (modal) => dispatch(openModal(modal))
   };
 };
 
