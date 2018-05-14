@@ -42,7 +42,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     closeModal: () => {
-      if(window.tempPhotoState) { delete window.tempPhotoState; }
       return dispatch(closeModal());
     }
   };

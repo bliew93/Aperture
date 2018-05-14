@@ -5,7 +5,7 @@ import { merge } from 'lodash';
 class PhotoForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.props.photos;
+    this.state = this.props.photoStates;
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -26,7 +26,7 @@ class PhotoForm extends React.Component {
     e.preventDefault();
     // will need to improve this. Independent hits to backend not efficient
     for(let photo in this.state){
-      const file = window.tempPhotoState[photo].imageFile;
+      const file = this.props.photos[photo].imageFile;
 
       const formData = new FormData();
       formData.append("photo[title]", this.state[photo].title);
@@ -38,7 +38,6 @@ class PhotoForm extends React.Component {
 
       this.props.processForm(formData);
     }
-    delete window.tempPhotoState;
     this.props.closeModal();
   }
 
