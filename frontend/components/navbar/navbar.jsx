@@ -32,7 +32,7 @@ class Navbar extends React.Component {
       <nav className="right-nav">
         <h2>{this.props.currentUser.username}</h2>
         <div id="user-dropdown-btn" onMouseOver={(e) => this.revealDropdown(e)}>
-          <UserDropdown logout={this.props.logout}/>
+          <UserDropdown logout={this.props.logout} currentUser={this.props.currentUser} />
           <img src={this.props.currentUser.image_url} className="profile-picture"></img>
         </div>
 

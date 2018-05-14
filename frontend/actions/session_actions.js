@@ -29,10 +29,10 @@ export const signup = (user) => dispatch => {
   });
 };
 
-export const receiveCurrentUser = (currentUser) => {
+export const receiveCurrentUser = (payload) => {
   return {
     type: RECEIVE_CURRENT_USER,
-    user: currentUser
+    payload
   };
 };
 
