@@ -13,6 +13,7 @@
 #  avatar_file_size    :integer
 #  avatar_updated_at   :datetime
 #  about_you           :text
+#  cover_photo_id      :integer
 #
 
 require 'test_helper'

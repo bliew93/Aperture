@@ -1,0 +1,56 @@
+.profile-container {
+  display: block;
+}
+
+.profile-contents {
+
+}
+
+.profile-cover-photo {
+  width: 100vw;
+  min-height: 300px;
+  max-height: 800px;
+  overflow-y: hidden;
+  min-width: 500px;
+  border: 1px solid black;
+  background-color: white;
+}
+
+.profile-user-avatar {
+  height: 200px;
+  width: 200px;
+  position: relative;
+  bottom: 115px;
+  margin: auto;
+}
+
+.profile-user-avatar > img {
+  border: 1px solid black;
+  border-radius: 50%;
+}
+
+.profile-page-user {
+  font-size: 48px;
+  font-weight: bold;
+  font-family: 'roboto';
+  text-align: center;
+  position: relative;
+  top: -95px;
+}
+
+.profile-user-details {
+  text-align: center;
+  top: -81px;
+  position: relative;
+  font-family: 'roboto';
+  font-size: 20px;
+  border-bottom: 1px solid black;
+  padding-bottom: 50px;
+}
+
+.photo-grid-container {
+
+}
+.photo-grid-contents {
+
+}

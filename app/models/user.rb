@@ -13,6 +13,7 @@
 #  avatar_file_size    :integer
 #  avatar_updated_at   :datetime
 #  about_you           :text
+#  cover_photo_id      :integer
 #
 
 class User < ApplicationRecord
@@ -24,8 +25,6 @@ class User < ApplicationRecord
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
   has_many :photos
-
-
 
   attr_reader :password
 

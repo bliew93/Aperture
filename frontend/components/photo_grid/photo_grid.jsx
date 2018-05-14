@@ -2,11 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const PhotoGrid = ({ photos }) => {
-  const allPhotos = photos.map( (photo) => {
+
+  const photosArr = Object.values(photos);
+
+  const allPhotos = photosArr.map( (photo) => {
     return (
       <div className="photo-grid-item$" key={photo.id}>
         <Link to={`/photo/${photo.id}`}></Link>
-        <img src={photo.imageUrl}></img>
+        <img src={photo.image_url}></img>
       </div>
     );
   });

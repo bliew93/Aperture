@@ -5,7 +5,7 @@ import { fetchUser } from '../../actions/user_actions';
 const mapStateToProps = (state, ownProps) => {
   return{
     user: state.entities.users[ownProps.match.params.userId],
-    photos: Object.values(state.entities.photos)
+    photos: state.entities.photos
   };
 };
 
