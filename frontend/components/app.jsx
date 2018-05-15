@@ -5,6 +5,7 @@ import SignupFormContainer from './session_form/signup_form_container';
 import Welcome from './welcome/welcome';
 import ProfilePageContainer from './profile_page/profile_page_container';
 import PhotoShowContainer from './photo_show/photo_show_container';
+import ManagePhotosContainer from './manage_photos/manage_photos_container';
 import { Route, Link, Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import Modal from './modal/modal';
@@ -21,6 +22,7 @@ const App = () => {
         <AuthRoute exact path="/" component={Welcome} />
         <ProtectedRoute exact path="/users/:userId" component={ProfilePageContainer}/>
         <ProtectedRoute exact path="/photo/:photoId" component={PhotoShowContainer}/>
+        <ProtectedRoute exact path="/manage" component={ManagePhotosContainer}/>
       </Switch>
     </div>
   );

@@ -1,0 +1,23 @@
+.manage-photos-container {
+  padding-top: 70px;
+  width: 100%;
+}
+
+.manage-photos-contents {
+  display: flex;
+  height: 100%;
+}
+
+.photo-type {
+  width: 20%;
+}
+
+.manage-photo-images {
+  overflow-y: auto;
+  width: 60%;
+  max-height: 750px;
+}
+
+.edit-photo-form {
+  width: 20%;
+}

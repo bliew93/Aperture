@@ -21,7 +21,7 @@ class UploadPhoto extends React.Component {
   parseFiles(file, idx, filesCount) {
     const reader = new FileReader();
     reader.onloadend = () => {
-      this.tempPhotoState = this.tempPhotoState.concat( { id: idx, imageUrl: reader.result, imageFile: file} );
+      this.tempPhotoState = this.tempPhotoState.concat( { id: idx, image_url: reader.result, imageFile: file} );
 
       if(filesCount === this.tempPhotoState.length){
         this.props.openModal({ modalType: 'pre-submit', photos: this.tempPhotoState });

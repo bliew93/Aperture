@@ -1,7 +1,7 @@
 import React from 'react';
 import ImageModal from '../image_modal/image_modal';
 import PhotoCreateFormContainer from '../photo_form/photo_create_form_container';
-import UploadPhotosGrid from '../photo_grid/upload_photos_grid';
+import UploadPhotosGrid from '../photo_grid/form_photos_grid';
 
 class PreSubmitPhotos extends React.Component {
   constructor(props) {
