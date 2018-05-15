@@ -35,15 +35,13 @@ class SessionForm extends React.Component {
 
   handleDemoLogin(e) {
     e.preventDefault();
-    if(this.props.location.pathname === '/login'){
-      this.setState({ username: 'guest', password: "password" });
-    }
-    else {
-      this.props.history.push({
-        pathname: "/login",
-        state: { username: 'guest', password: "password" }
-      });
-    }
+    const loginUser = this.props.location.pathname === '/login' ? this.props.processForm : this.props.login;
+
+    this.setState({ username: 'guest', password: "password" }, () =>
+      loginUser(this.state).then ( () => {
+        return this.props.history.push('/feed');
+      })
+    );
   }
 
   render(){
@@ -75,7 +73,7 @@ class SessionForm extends React.Component {
           {errors}
         </ul>
 
-        <form className="form-contents">
+        <form id={this.props.formType} className="form-contents">
 
           <h2 className="form-header">{header}</h2>
           <label>Username</label>
