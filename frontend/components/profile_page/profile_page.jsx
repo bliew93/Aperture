@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import PhotoGrid from '../photo_grid/photo_grid';
+import { isEmpty } from 'lodash';
 
 class ProfilePage extends React.Component {
   constructor(props) {
@@ -20,7 +21,7 @@ class ProfilePage extends React.Component {
   followButton(){
     const currentUserFolloweeIds = this.props.currentUser.followee_ids;
     const userId = parseInt(this.props.match.params.userId);
-    
+
     if(currentUserFolloweeIds.indexOf(userId) === -1) {
       return <button onClick={() => this.props.followUser(userId)}>Follow User</button>;
     }
@@ -41,7 +42,7 @@ class ProfilePage extends React.Component {
   }
 
   render() {
-    const coverPhoto = (this.props.user && Boolean(this.props.user.coverPhotoId)) ?
+    const coverPhoto = (this.props.user && Boolean(this.props.user.coverPhotoId) && !_.isEmpty(this.props.photos)) ?
        this.props.photos[this.props.user.coverPhotoId].image_url : '';
 
     const avatarImg = (this.props.user && Boolean(this.props.user.image_url)) ?
