@@ -26,6 +26,29 @@ class User < ApplicationRecord
 
   has_many :photos
 
+  has_many :follow_relationships,
+    class_name: :Follow,
+    foreign_key: :user_id,
+    primary_key: :id
+
+  has_many :follower_relationships,
+    class_name: :Follow,
+    foreign_key: :followee_id,
+    primary_key: :id
+
+  has_many :followees,
+    through: :follow_relationships,
+    source: :followee
+
+  has_many :followers,
+    through: :follower_relationships,
+    source: :user
+
+  # @followers = User.joins(:follows).where('followee_id = 12') #replace '12' with followee_id
+  # has_many :followers,
+  #   through: :followees,
+  #   source: :User
+
   attr_reader :password
 
   def self.find_by_credentials(username, password)
