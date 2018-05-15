@@ -20,6 +20,15 @@ class Navbar extends React.Component {
     $('#user-dropdown-btn').on('mouseleave', this.hideDropdown);
   }
 
+  logoLink() {
+    if (this.props.currentUser) {
+      return <Link to="/feed"><img className="logo" src={window.staticImages.logo}></img></Link>;
+    }
+    else {
+      return <Link to="/"><img className="logo" src={window.staticImages.logo}></img></Link>;
+    }
+  }
+
   // add "hidden" class to dropdown and update event listeners
   hideDropdown () {
   	$('#user-dropdown').addClass('hidden');
@@ -60,7 +69,7 @@ class Navbar extends React.Component {
     return (
       <header className="main-nav">
         <nav className="left-nav">
-          <Link to="/"><img className="logo" src={window.staticImages.logo}></img></Link>
+          {this.logoLink()}
           <ul className="nav-links">
           </ul>
         </nav>

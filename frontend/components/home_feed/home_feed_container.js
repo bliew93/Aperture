@@ -3,11 +3,14 @@ import { connect } from 'react-redux';
 
 const mapStateToProps = (state) => {
   return {
+    photos: Object.values(state.entities.photos),
+    users: state.entities.users
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    fetchUsers: () => dispatch(fetchUsers())
   };
 };
 

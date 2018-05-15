@@ -1,7 +1,6 @@
 class Api::UsersController < ApplicationController
-  # to search for users who match target text w/ username
   def index
-    @users = User.all
+    @users = current_user.followees
     render 'api/users/index'
   end
 

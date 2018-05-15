@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
-import { fetchUser, followUser, unfollowUser } from './actions/user_actions';
+
 document.addEventListener('DOMContentLoaded', () =>{
   const root = document.getElementById('root');
   let store;
@@ -26,9 +26,6 @@ document.addEventListener('DOMContentLoaded', () =>{
   }
   window.getState = store.getState;
   window.dispatch = store.dispatch;
-  window.fetchUser = fetchUser;
-  window.followUser = followUser;
-  window.unfollowUser = unfollowUser;
-
+  
   ReactDOM.render(<Root store={store} />, root);
 });

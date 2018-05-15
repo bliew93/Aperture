@@ -1,8 +1,14 @@
+require 'byebug'
+
 class Api::PhotosController < ApplicationController
   def index
-    # Will change this to only show all of current user's photos and
-    # current user's followed users photos on home feed
-    @photos = Photo.all
+    @photos = []
+    followedUsersPhotos = current_user.followees.includes(:photos)
+
+    followedUsersPhotos.each do |user|
+      @photos += user.photos
+    end
+
     render 'api/photos/index'
   end
 
