@@ -20,6 +20,7 @@ class ProfilePage extends React.Component {
   followButton(){
     const currentUserFolloweeIds = this.props.currentUser.followee_ids;
     const userId = parseInt(this.props.match.params.userId);
+    
     if(currentUserFolloweeIds.indexOf(userId) === -1) {
       return <button onClick={() => this.props.followUser(userId)}>Follow User</button>;
     }
@@ -71,7 +72,7 @@ class ProfilePage extends React.Component {
           <div className="profile-button">
             {this.profileButton()}
           </div>
-          
+
           <h1 className="profile-page-user">{this.props.user ? this.props.user.username : ''}</h1>
           <div className="profile-user-details">
             {aboutYou}

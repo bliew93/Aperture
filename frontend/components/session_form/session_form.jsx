@@ -26,10 +26,10 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.processForm(user);
-    // .then( () => {
-    //   // this.props.history.push("/"); //use this for redirection
-    // });
+    this.props.processForm(user).then( () => {
+      this.props.history.push('/feed');
+    });
+
     this.setState({ username: "", password: "" });
   }
 
