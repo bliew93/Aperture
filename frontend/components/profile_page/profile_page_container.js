@@ -1,11 +1,12 @@
 import { connect } from 'react-redux';
 import ProfilePage from './profile_page';
-import { fetchUser } from '../../actions/user_actions';
+import { fetchUser, followUser, unfollowUser } from '../../actions/user_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return{
     user: state.entities.users[ownProps.match.params.userId],
-    photos: state.entities.photos
+    photos: state.entities.photos,
+    currentUser: state.session.currentUser
   };
 };
 
@@ -13,7 +14,9 @@ const mapStateToProps = (state, ownProps) => {
 // fetch the specific user. Get the photos
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchUser: (userId) => dispatch(fetchUser(userId))
+    fetchUser: (userId) => dispatch(fetchUser(userId)),
+    followUser: (followeeId) => dispatch(followUser(followeeId)),
+    unfollowUser: (followeeId) => dispatch(unfollowUser(followeeId))
   };
 };
 

@@ -21,6 +21,16 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def follow_user
+    follow = Follow.new(user_id: current_user.id, followee_id: params[:id])
+    follow.save if !Follow.find_by(user_id: follow.user_id, followee_id: follow.followee_id)
+  end
+
+  def unfollow_user
+    follow = Follow.find_by(followee_id: params[:id])
+    follow.destroy!
+  end
+
   private
   def user_params
     params.require(:user).permit(:username, :password)

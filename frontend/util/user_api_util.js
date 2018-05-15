@@ -4,3 +4,17 @@ export const fetchUser = (userId) => {
     url: `/api/users/${userId}`,
   });
 };
+
+export const followUser = (followeeId) => {
+  return $.ajax({
+    method: 'post',
+    url: `/api/users/${followeeId}/follow_user`,
+  });
+};
+
+export const unfollowUser = (followeeId) => {
+  return $.ajax({
+    method: 'delete',
+    url: `/api/users/${followeeId}/unfollow_user`,
+  });
+};
