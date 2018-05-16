@@ -41,6 +41,8 @@ class PhotoForm extends React.Component {
 
         this.props.processForm(formData);
       }
+      
+      this.props.closeModal();
     }
     else {
       const updatedPhoto = this.state[this.props.selectedPhoto];

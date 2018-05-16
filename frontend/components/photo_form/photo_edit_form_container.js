@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PhotoForm from './photo_form';
 import { updatePhoto, fetchPhoto, clearErrors } from '../../actions/photo_actions';
+import { fetchUser } from '../../actions/user_actions';
 import { closeModal } from '../../actions/modal_actions';
 import { isEmpty } from 'lodash';
 
@@ -20,6 +21,7 @@ const mapStateToProps = (state, ownProps) => {
     photoStates: photoStates,
     errors: state.errors.photo,
     formType: 'edit',
+    currentUser: state.session.currentUser
   };
 };
 
@@ -28,19 +30,14 @@ const mapDispatchToProps = dispatch => {
     fetchPhoto: (id) => dispatch(fetchPhoto(id)),
     clearErrors: () => dispatch(clearErrors()),
     processForm: photo => dispatch(updatePhoto(photo)),
+    fetchUser: (userId) => dispatch(fetchUser(userId))
   };
 };
 
 class EditiPhotoForm extends React.Component {
 
   componentDidMount() {
-    // this.props.fetchPhoto(this.props.match.params.photoId);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    // if (this.props.post.id != nextProps.match.params.photoId) {
-    //   this.props.fetchPhoto(nextProps.match.params.photoId);
-    // }
+    this.props.fetchUser(this.props.currentUser.id);
   }
 
   render() {
