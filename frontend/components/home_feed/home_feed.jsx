@@ -1,34 +1,32 @@
 import React from 'react';
+import HomeFeedItem from './home_feed_item';
+import { isEmpty } from 'lodash';
 
-const HomeFeed = (props) => {
+class HomeFeed extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
-  const allFollowedPhotos = props.photos.map( (photo) => {
+  componentDidMount() {
+    this.props.fetchUsers();
+  }
+
+  render() {
+    const allFollowedPhotos = this.props.photos.map( (photo) => {
+      
+      const user = (!_.isEmpty(this.props.users) && !_.isEmpty(this.props.photos)) ?
+        this.props.users[photo.user_id] : {username: ''};
+
+      return <HomeFeedItem key={photo.id} photo={photo} user={user}/>;
+    });
+
     return (
-      <div className="followed-photo-container" key={photo.id}>
-        <div className="followed-photo-header">
-          <a>
-            <img></img>
-          </a>
-        </div>
-
-        <div className="followed-photo-img">
-          <a>
-            <img></img>
-          </a>
-        </div>
-
-        <div className="followed-photo-footer">
-
-        </div>
+      <div className="home-feed-container">
+        {allFollowedPhotos}
       </div>
     );
-  });
+  }
 
-  return (
-    <div className="home-feed-container">
-      {allFollowedPhotos}
-    </div>
-  );
-};
+}
 
 export default HomeFeed;

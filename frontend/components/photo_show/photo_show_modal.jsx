@@ -1,8 +1,13 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 class PhotoShowModal extends React.Component {
   constructor(props){
     super(props);
+  }
+
+  componentWillUnmount() {
+    this.props.history.goBack();
   }
 
   render() {
@@ -36,4 +41,4 @@ class PhotoShowModal extends React.Component {
   }
 }
 
-export default PhotoShowModal;
+export default withRouter(PhotoShowModal);

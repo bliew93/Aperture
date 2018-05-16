@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import UploadPhotoContainer from '../upload_photo_modal/upload_photo_container';
 import PreSubmitPhotos from '../pre_submit_modal/pre_submit_photos';
 import PhotoShowModal from '../photo_show/photo_show_modal';
+import { Redirect } from 'react-router-dom';
 
 function Modal({modal, closeModal}) {
   if (!modal) {
