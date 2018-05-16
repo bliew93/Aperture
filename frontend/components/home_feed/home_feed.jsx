@@ -12,10 +12,17 @@ class HomeFeed extends React.Component {
   }
 
   render() {
-    const allFollowedPhotos = this.props.photos.map( (photo) => {
-      
-      const user = (!_.isEmpty(this.props.users) && !_.isEmpty(this.props.photos)) ?
-        this.props.users[photo.user_id] : {username: ''};
+    const photos = this.props.photos;
+    const users = this.props.users;
+
+    const allFollowedPhotos = photos.map( (photo) => {
+      let user;
+      if (!_.isEmpty(users) && !_.isEmpty(photos)) {
+        user = users[photo.user_id];
+      }
+      else {
+        user = {id: 0, username: ''};
+      }
 
       return <HomeFeedItem key={photo.id} photo={photo} user={user}/>;
     });

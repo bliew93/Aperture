@@ -7,7 +7,6 @@ const usersReducer = (state = {}, action) => {
     case RECEIVE_USERS:
       if(_.isEmpty(action.payload.users)) { return state; }
       return action.payload.users;
-    case RECEIVE_CURRENT_USER:
     case RECEIVE_USER:
     return { [action.payload.users.id]: action.payload.users };
     default:

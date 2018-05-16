@@ -36,3 +36,11 @@ export const deletePhoto = (photoId) => {
     url: `api/photos/${photoId}`
   });
 };
+
+export const createComment = (photoId, comment) => {
+  return $.ajax({
+    method: 'post',
+    url: `/api/photos/${photoId}/create_comment`,
+    data: { comment: { body: comment } }
+  });
+};

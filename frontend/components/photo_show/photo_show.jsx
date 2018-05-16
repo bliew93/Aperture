@@ -21,7 +21,6 @@ class PhotoShow extends React.Component {
   render() {
     return (
       <div>
-        <span>This is the photo page</span>
       </div>
     );
   }

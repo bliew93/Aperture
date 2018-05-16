@@ -10,8 +10,6 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-//fetch user's photos
-// fetch the specific user. Get the photos
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchUser: (userId) => dispatch(fetchUser(userId)),
