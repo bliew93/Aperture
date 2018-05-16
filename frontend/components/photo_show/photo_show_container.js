@@ -6,6 +6,7 @@ import { fetchPhoto } from '../../actions/photo_actions';
 const mapStateToProps = (state, ownProps) => {
   return{
     photo: state.entities.photos[ownProps.match.params.photoId],
+    comments: state.entities.comments,
     modalType: 'photo-show'
   };
 };

@@ -4,18 +4,17 @@ class PhotoShow extends React.Component {
   constructor(props){
     super(props);
   }
-  // props.history.goBack to go back to profile page
+
   componentDidMount(){
-    if(!Boolean(this.props.photo)){
-      this.props.fetchPhoto(this.props.match.params.photoId);
-    }
-    else {
-      this.props.openModal({modalType: this.props.modalType, photo: this.props.photo});
-    }
+     this.props.fetchPhoto(this.props.match.params.photoId);
   }
 
   componentDidUpdate() {
-    this.props.openModal({modalType: this.props.modalType, photo: this.props.photo});
+    this.props.openModal({
+      modalType: this.props.modalType,
+      photo: this.props.photo,
+      comments: this.props.comments
+    });
   }
 
   render() {

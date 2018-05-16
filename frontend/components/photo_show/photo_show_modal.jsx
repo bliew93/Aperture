@@ -11,6 +11,12 @@ class PhotoShowModal extends React.Component {
   }
 
   render() {
+    const comments = Object.values(this.props.comments);
+    const allComments = comments.map( (comment) => {
+      return <li key={comment.id}>{comment.body}</li>;
+    });
+
+
     return (
       <div className='photo-show-container'>
         <div className='photo-image-container'>
@@ -31,9 +37,9 @@ class PhotoShowModal extends React.Component {
           </div>
 
           <div className='photo-comments'>
-            <span>
-              COMMENTS GO HERE!
-            </span>
+            <ul>
+              {allComments}
+            </ul>
           </div>
         </div>
       </div>

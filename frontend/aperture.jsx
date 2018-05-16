@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
+import { fetchPhoto, createComment, clearComments } from './actions/photo_actions';
 
 document.addEventListener('DOMContentLoaded', () =>{
   const root = document.getElementById('root');
@@ -26,6 +27,9 @@ document.addEventListener('DOMContentLoaded', () =>{
   }
   window.getState = store.getState;
   window.dispatch = store.dispatch;
-  
+  window.fetchPhoto = fetchPhoto;
+  window.createComment = createComment;
+  window.clearComments = clearComments;
+
   ReactDOM.render(<Root store={store} />, root);
 });

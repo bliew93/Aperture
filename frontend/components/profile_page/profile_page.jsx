@@ -42,20 +42,23 @@ class ProfilePage extends React.Component {
   }
 
   render() {
-    const coverPhoto = (this.props.user && Boolean(this.props.user.coverPhotoId) && !_.isEmpty(this.props.photos)) ?
-       this.props.photos[this.props.user.coverPhotoId].image_url : '';
+    const user = this.props.user;
+    const photos = this.props.photos;
 
-    const avatarImg = (this.props.user && Boolean(this.props.user.image_url)) ?
-      this.props.user.image_url : '';
+    const coverPhoto = (user && Boolean(user.coverPhotoId) && (photos[user.coverPhotoId] !== undefined)) ?
+       photos[user.coverPhotoId].image_url : '';
 
-    const aboutYou = (this.props.user && Boolean(this.props.user.aboutYou)) ?
-      this.props.user.aboutYou : '';
+    const avatarImg = (user && Boolean(user.image_url)) ?
+      user.image_url : '';
 
-    const followeeIds = (this.props.user && Boolean(this.props.user.followee_ids)) ?
-      this.props.user.followee_ids : [];
+    const aboutYou = (user && Boolean(user.aboutYou)) ?
+      user.aboutYou : '';
 
-    const followersIds = (this.props.user && Boolean(this.props.user.followers_ids)) ?
-      this.props.user.followee_ids : [];
+    const followeeIds = (user && Boolean(user.followee_ids)) ?
+      user.followee_ids : [];
+
+    const followersIds = (user && Boolean(user.followers_ids)) ?
+      user.followee_ids : [];
 
 
     return (

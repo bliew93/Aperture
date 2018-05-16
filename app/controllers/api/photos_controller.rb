@@ -40,8 +40,12 @@ class Api::PhotosController < ApplicationController
   end
 
   def create_comment
-    comment = Comment.new(photo_id: params[:id], body: comment_params[:body])
-    render json: comment.errors.full_messages, status: 422 if !comment.save
+    @comment = Comment.new(photo_id: params[:id], body: comment_params[:body])
+    if @comment.save
+      render 'api/comments/show'
+    else
+      render json: comment.errors.full_messages, status: 422
+    end
   end
 
   private

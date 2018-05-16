@@ -5,12 +5,14 @@ export const RECEIVE_PHOTOS = 'RECEIVE_PHOTOS';
 export const REMOVE_PHOTO = 'REMOVE_PHOTO';
 export const RECEIVE_PHOTO_ERRORS = 'RECEIVE_PHOTO_ERRORS';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
+export const RECEIVE_COMMENT = 'RECEIVE_COMMENT';
+export const CLEAR_COMMENTS = 'CLEAR_COMMENTS';
 
 // Sync
-export const receivePhoto = (photo) => {
+export const receivePhoto = (payload) => {
   return {
     type: RECEIVE_PHOTO,
-    photo
+    payload
   };
 };
 
@@ -40,6 +42,19 @@ export const clearErrors = () => {
   };
 };
 
+export const clearComments = () => {
+  return {
+    type: CLEAR_COMMENTS,
+  };
+};
+
+
+export const receiveComment = (comment) => {
+  return {
+    type: RECEIVE_COMMENT,
+    comment
+  };
+};
 
 // Async
 export const fetchPhotos = () => dispatch => {
@@ -52,8 +67,8 @@ export const fetchPhotos = () => dispatch => {
 };
 
 export const fetchPhoto = (photoId) => dispatch => {
-  return PhotoApiUtil.fetchPhoto(photoId).then( (photo) => {
-    return dispatch(receivePhoto(photo));
+  return PhotoApiUtil.fetchPhoto(photoId).then( (payload) => {
+    return dispatch(receivePhoto(payload));
   },
   (errs) => {
     dispatch(receiveErrors(errs.responseJSON));
@@ -81,6 +96,15 @@ export const updatePhoto = (photo) => dispatch => {
 export const deletePhoto = (photoId) => dispatch => {
   return PhotoApiUtil.deletePhoto(photoId).then( () => {
     return dispatch(removePhoto(photoId));
+  },
+  (errs) => {
+    dispatch(receiveErrors(errs.responseJSON));
+  });
+};
+
+export const createComment = (photoId, comment) => dispatch => {
+  return PhotoApiUtil.createComment(photoId, comment).then( (comment) => {
+      return dispatch(receiveComment(comment));
   },
   (errs) => {
     dispatch(receiveErrors(errs.responseJSON));
