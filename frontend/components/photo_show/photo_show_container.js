@@ -14,6 +14,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     fetchPhoto: (photoId) => dispatch(fetchPhoto(photoId)),
+    createComment: (comment) => dispatch(createComment(ownProps.match.params.photoId, comment)),
     openModal: (modal) => dispatch(openModal(modal)),
     closeModal: () =>  dispatch(closeModal())
   };

@@ -20,7 +20,7 @@ function Modal({modal, closeModal}) {
       component = <PreSubmitPhotos photos={modal.photos} />;
       break;
     case 'photo-show':
-      component = <PhotoShowModal photo={modal.photo} comments={modal.comments}/>;
+      component = <PhotoShowModal photo={modal.photo} comments={modal.comments} createComment={modal.createComment}/>;
       break;
     default:
       return null;

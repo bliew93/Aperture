@@ -4,10 +4,30 @@ import { withRouter } from 'react-router-dom';
 class PhotoShowModal extends React.Component {
   constructor(props){
     super(props);
+    this.state = { body: ''};
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.textareaEnterSubmit = this.textareaEnterSubmit.bind(this);
   }
 
   componentWillUnmount() {
     this.props.history.goBack();
+  }
+
+  update(field) {
+    return e => this.setState({ [field]: e.target.value });
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.createComment(this.state.body);
+    this.setState({ body: '' });
+  }
+
+  textareaEnterSubmit(e) {
+    if (e.keyCode == 13) {
+      this.handleSubmit(e);
+      return false;
+    }
   }
 
   render() {
@@ -15,6 +35,7 @@ class PhotoShowModal extends React.Component {
     const allComments = comments.map( (comment) => {
       return <li key={comment.id}>{comment.body}</li>;
     });
+
 
 
     return (
@@ -41,6 +62,14 @@ class PhotoShowModal extends React.Component {
               {allComments}
             </ul>
           </div>
+
+          <form className="photo-comments-form">
+            <textarea
+              onKeyDown={this.textareaEnterSubmit}
+              onChange={this.update("body")}
+              value={this.state.body}
+              ></textarea>
+          </form>
         </div>
       </div>
     );
