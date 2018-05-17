@@ -27,7 +27,10 @@ function Modal({modal, closeModal}) {
         photo={modal.photo}
         comments={modal.comments}
         createComment={modal.createComment}
-        closeModal={modal.closeModal}/>;
+        closeModal={modal.closeModal}
+        currentUser={modal.currentUser}
+        followUser={modal.followUser}
+        unfollowUser={modal.unfollowUser}/>;
       break;
     case 'manage-profile':
       component = <ManageProfileContainer />;

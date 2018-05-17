@@ -23,6 +23,16 @@
   color: #525558;
 }
 
+.profile-img {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.profile-img img {
+  width: 50px;
+  height: 50px;
+}
+
 .photo-show-info {
   width: 100%;
   height: 30%;

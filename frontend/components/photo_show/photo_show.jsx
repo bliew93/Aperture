@@ -16,7 +16,10 @@ class PhotoShow extends React.Component {
       photo: this.props.photo,
       comments: this.props.comments,
       createComment: this.props.createComment,
-      closeModal: this.props.closeModal
+      closeModal: this.props.closeModal,
+      currentUser: this.props.currentUser,
+      followUser: this.props.followUser,
+      unfollowUser: this.props.unfollowUser
     });
   }
 

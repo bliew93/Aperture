@@ -10,7 +10,12 @@ class PhotoShowModal extends React.Component {
   }
 
   componentWillUnmount() {
-    this.props.history.goBack();
+    const currentLocation = this.props.history.location.pathname;
+
+    // if current location isn't a user's profile page (via Link), goes back a page
+    if(!Boolean(currentLocation.match(/\/users\//))) {
+      this.props.history.goBack();
+    }
   }
 
   update(field) {
@@ -30,6 +35,24 @@ class PhotoShowModal extends React.Component {
     }
   }
 
+  followButton(){
+    const currentUserFolloweeIds = this.props.currentUser.followee_ids;
+    const userId = parseInt(this.props.user.id);
+
+    if(currentUserFolloweeIds.indexOf(userId) === -1) {
+      return <button onClick={() => this.props.followUser(userId)}>Follow User</button>;
+    }
+    else {
+      return <button onClick={() => this.props.unfollowUser(userId)}>Unfollow User</button>;
+    }
+  }
+
+  profileButton(){
+    if(parseInt(this.props.match.params.userId) !== this.props.currentUser.id) {
+      return this.followButton();
+    }
+  }
+
   render() {
     const user = this.props.user || {id: '', image_url: ''};
     const comments = Object.values(this.props.comments);
@@ -45,6 +68,18 @@ class PhotoShowModal extends React.Component {
 
         <div className='photo-text-container'>
           <div className='photo-show-info'>
+            <div className="profile-img">
+              <Link to={`/users/${user.id}`} onClick={() => this.props.closeModal()}>
+                <img src={user.image_url}></img>
+              </Link>
+              <Link to={`/users/${user.id}`} onClick={() => this.props.closeModal()}>
+                {user.username}
+              </Link>
+            </div>
+
+            <div className="follow-state-button">
+              {this.profileButton()}
+            </div>
 
             <div className="photo-title">
               <h2>Title</h2>
