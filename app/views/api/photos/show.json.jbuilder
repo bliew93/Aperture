@@ -10,3 +10,7 @@ json.comments do
     end
   end
 end
+
+json.users do
+  json.partial! 'api/users/user', user:@photo.user
+end

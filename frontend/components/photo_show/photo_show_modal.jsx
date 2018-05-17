@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter, Redirect } from 'react-router-dom';
 
 class PhotoShowModal extends React.Component {
   constructor(props){
@@ -31,12 +31,11 @@ class PhotoShowModal extends React.Component {
   }
 
   render() {
+    const user = this.props.user || {id: '', image_url: ''};
     const comments = Object.values(this.props.comments);
     const allComments = comments.map( (comment) => {
       return <li key={comment.id}>{comment.body}</li>;
     });
-
-
 
     return (
       <div className='photo-show-container'>
@@ -46,6 +45,7 @@ class PhotoShowModal extends React.Component {
 
         <div className='photo-text-container'>
           <div className='photo-show-info'>
+
             <div className="photo-title">
               <h2>Title</h2>
               <span>{this.props.photo.title}</span>

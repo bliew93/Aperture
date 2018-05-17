@@ -22,7 +22,12 @@ function Modal({modal, closeModal}) {
       component = <PreSubmitPhotos photos={modal.photos} />;
       break;
     case 'photo-show':
-      component = <PhotoShowModal photo={modal.photo} comments={modal.comments} createComment={modal.createComment}/>;
+      component = <PhotoShowModal
+        user={modal.user}
+        photo={modal.photo}
+        comments={modal.comments}
+        createComment={modal.createComment}
+        closeModal={modal.closeModal}/>;
       break;
     case 'manage-profile':
       component = <ManageProfileContainer />;

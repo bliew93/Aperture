@@ -12,9 +12,11 @@ class PhotoShow extends React.Component {
   componentDidUpdate() {
     this.props.openModal({
       modalType: this.props.modalType,
+      user: this.props.user,
       photo: this.props.photo,
       comments: this.props.comments,
-      createComment: this.props.createComment
+      createComment: this.props.createComment,
+      closeModal: this.props.closeModal
     });
   }
 

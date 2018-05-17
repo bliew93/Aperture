@@ -17,11 +17,11 @@ class HomeFeed extends React.Component {
 
     const allFollowedPhotos = photos.map( (photo) => {
       let user;
-      if (!_.isEmpty(users) && !_.isEmpty(photos)) {
+      if (Boolean(users[photo.user_id])) {
         user = users[photo.user_id];
       }
       else {
-        user = {id: 0, username: ''};
+        user = {id: photo.user_id, username: ''};
       }
 
       return <HomeFeedItem key={photo.id} photo={photo} user={user}/>;

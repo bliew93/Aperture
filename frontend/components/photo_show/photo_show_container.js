@@ -7,6 +7,7 @@ const mapStateToProps = (state, ownProps) => {
   return{
     photo: state.entities.photos[ownProps.match.params.photoId],
     comments: state.entities.comments,
+    user: state.entities.users[Object.keys(state.entities.users)[0]],
     modalType: 'photo-show'
   };
 };

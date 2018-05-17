@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const HomeFeedItem = ({ photo, user }) => {
+
   return (
     <div className="followed-photo-container" key={photo.id}>
       <div className="followed-photo-header">

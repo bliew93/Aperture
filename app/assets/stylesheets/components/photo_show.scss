@@ -18,8 +18,9 @@
 .photo-text-container {
   width: 19%;
   height: 100%;
-  border-left: 0.5px solid lightgrey;
-  padding-left: 14px;
+  border-left: 10px solid #525558;
+  padding-left: 5px;
+  color: #525558;
 }
 
 .photo-show-info {
@@ -50,6 +51,8 @@
 }
 
 .photo-comments {
+
+  font-size: 14px;
   height: 55%;
   width: 97%;
   border: 1px solid black;
@@ -63,4 +66,11 @@
   border: 1px solid black;
   resize: none;
   width: 97%;
+}
+
+.photo-comments-form textarea {
+  margin: 0px;
+  height: 48px;
+  resize: none;
+  width: 100%;
 }
