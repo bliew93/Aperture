@@ -17,6 +17,12 @@ export const fetchUsers = () => dispatch => {
   });
 };
 
+export const updateUser = (user) => dispatch => {
+  return UserApiUtil.updateUser(user).then( (user) => {
+      return dispatch(receiveUser(user));
+  });
+};
+
 export const followUser = (followeeId) => dispatch => {
   return UserApiUtil.followUser(followeeId).then( () => {
     return dispatch(receiveFollow(followeeId));

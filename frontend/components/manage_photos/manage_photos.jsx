@@ -1,6 +1,6 @@
 import React from 'react';
 import EditPhotoForm from '../photo_form/photo_edit_form_container';
-import UploadPhotosGrid from '../photo_grid/form_photos_grid';
+import FormPhotosGrid from '../photo_grid/form_photos_grid';
 import { isEmpty } from 'lodash';
 
 class ManagePhotos extends React.Component {
@@ -33,7 +33,7 @@ class ManagePhotos extends React.Component {
             </ul>
           </div>
           <div className="manage-photo-images">
-            <UploadPhotosGrid
+            <FormPhotosGrid
               photos={Object.values(this.props.photos)}
               updateSelectedPhoto={this.updateSelectedPhoto}
               selectedPhoto={this.state.selectedPhoto}

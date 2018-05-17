@@ -45,14 +45,14 @@ class ProfilePage extends React.Component {
     const user = this.props.user;
     const photos = this.props.photos;
 
-    const coverPhoto = (user && Boolean(user.coverPhotoId) && (photos[user.coverPhotoId] !== undefined)) ?
-       photos[user.coverPhotoId].image_url : '';
+    const coverPhoto = (user && Boolean(user.cover_photo_id) && (photos[user.cover_photo_id] !== undefined)) ?
+       photos[user.cover_photo_id].image_url : '';
 
     const avatarImg = (user && Boolean(user.image_url)) ?
       user.image_url : '';
 
-    const aboutYou = (user && Boolean(user.aboutYou)) ?
-      user.aboutYou : '';
+    const aboutYou = (user && Boolean(user.about_you)) ?
+      user.about_you : '';
 
     const followeeIds = (user && Boolean(user.followee_ids)) ?
       user.followee_ids : [];
@@ -65,25 +65,27 @@ class ProfilePage extends React.Component {
       <div className="profile-container" >
         <div className="profile-contents">
 
-          <div className="profile-cover-photo">
-            <img src={coverPhoto}></img>
-          </div>
 
-          <div className="profile-user-avatar">
-            <img src={avatarImg}></img>
-          </div>
+          <div className='test'>
+            <div className="profile-cover-photo">
+              <img src={coverPhoto}></img>
+            </div>
+            <div className="profile-user-avatar">
+              <img src={avatarImg}></img>
+            </div>
 
-          <div className="profile-button">
-            {this.profileButton()}
-          </div>
+            <div className="profile-button">
+              {this.profileButton()}
+            </div>
 
-          <h1 className="profile-page-user">{this.props.user ? this.props.user.username : ''}</h1>
-          <div className="profile-user-details">
-            {aboutYou}
+            <h1 className="profile-page-user">{this.props.user ? this.props.user.username : ''}</h1>
+            <div className="profile-user-details">
+              {aboutYou}
 
-            <div className="follow-stats">
-              <span>{followersIds.length} Followers</span>
-              <span>{followeeIds.length} Following</span>
+              <div className="follow-stats">
+                <span>{followersIds.length} Followers</span>
+                <span>{followeeIds.length} Following</span>
+              </div>
             </div>
           </div>
 

@@ -20,6 +20,9 @@ const HomeFeedItem = ({ photo, user }) => {
       <div className="followed-photo-footer">
         <h3>{photo.title}</h3>
         <span>{photo.body}</span>
+        <Link to={`/photo/${photo.id}`}>
+          <i className="material-icons comment">mode_comment</i>
+        </Link>
       </div>
     </div>
   );

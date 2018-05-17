@@ -1,10 +1,12 @@
 import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import UploadPhotoContainer from '../upload_photo_modal/upload_photo_container';
 import PreSubmitPhotos from '../pre_submit_modal/pre_submit_photos';
 import PhotoShowModal from '../photo_show/photo_show_modal';
-import { Redirect } from 'react-router-dom';
+import ManageProfileContainer from '../manage_profile_modal/manage_profile_container';
+
 
 function Modal({modal, closeModal}) {
   if (!modal) {
@@ -22,12 +24,15 @@ function Modal({modal, closeModal}) {
     case 'photo-show':
       component = <PhotoShowModal photo={modal.photo} comments={modal.comments} createComment={modal.createComment}/>;
       break;
+    case 'manage-profile':
+      component = <ManageProfileContainer />;
+      break;
     default:
       return null;
   }
   return (
     <div className="modal-background" onClick={closeModal}>
-      <div className="modal-child" onClick={e => e.stopPropagation()}>
+      <div className={`modal-child ${modal.modalType}`} onClick={e => e.stopPropagation()}>
         { component }
       </div>
     </div>

@@ -14,7 +14,8 @@ class PhotoForm extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if(prevProps.photoStates !== this.props.photoStates) {
+
+    if(this.props.formType === 'edit' && prevProps.photoStates !== this.props.photoStates) {
       this.setState(this.props.photoStates);
     }
   }
@@ -41,7 +42,7 @@ class PhotoForm extends React.Component {
 
         this.props.processForm(formData);
       }
-      
+
       this.props.closeModal();
     }
     else {
@@ -65,7 +66,9 @@ class PhotoForm extends React.Component {
 
         <form className="photo-form-contents">
 
-          <h2 className="photo-form-header">{this.props.formType}</h2>
+          <h2 className="photo-form-header">
+            {this.props.formType[0].toUpperCase() + this.props.formType.slice(1, this.props.formType.length)} Photos
+          </h2>
           <label>Title</label>
 
           <br></br>
@@ -81,7 +84,7 @@ class PhotoForm extends React.Component {
           <br></br>
           <br></br>
 
-          <input type="submit" onClick={this.handleSubmit} value={'Submit Photo(s)'}></input>
+          <input type="submit" onClick={this.handleSubmit} value={'Submit Photos'}></input>
         </form>
 
       </div>

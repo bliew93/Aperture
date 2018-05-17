@@ -22,10 +22,20 @@ class Navbar extends React.Component {
 
   logoLink() {
     if (this.props.currentUser) {
-      return <Link to="/feed"><img className="logo" src={window.staticImages.logo}></img></Link>;
+      return (
+        <div className="nav-logo">
+          <Link to="/feed"><img className="logo" src={window.staticImages.logo}></img></Link>
+            <Link to="/feed">Aperture</Link>
+        </div>
+      );
     }
     else {
-      return <Link to="/"><img className="logo" src={window.staticImages.logo}></img></Link>;
+      return (
+        <div className="nav-logo">
+          <Link to="/"><img className="logo" src={window.staticImages.logo}></img></Link>
+          <Link to="/">Aperture</Link>
+        </div>
+      );
     }
   }
 
@@ -39,10 +49,15 @@ class Navbar extends React.Component {
   loggedInUser()  {
     return (
       <nav className="right-nav">
-        <h2>{this.props.currentUser.username}</h2>
         <div id="user-dropdown-btn" onMouseOver={(e) => this.revealDropdown(e)}>
-          <UserDropdown logout={this.props.logout} currentUser={this.props.currentUser} />
+          <UserDropdown
+            logout={this.props.logout}
+            currentUser={this.props.currentUser}
+            openModal={this.props.openModal}
+          />
+        <Link to={`/users/${this.props.currentUser.id}`}>
           <img src={this.props.currentUser.image_url} className="profile-picture"></img>
+        </Link>
         </div>
 
         <div className='upload-button'>
@@ -65,9 +80,10 @@ class Navbar extends React.Component {
 
   render() {
     this.props.currentUser ? this.rightNav = this.loggedInUser() : this.rightNav = this.loggedOutUser(); // jshint ignore:line
+    const userStatus = this.props.currentUser ? 'logged-in' : 'logged-out';
 
     return (
-      <header className="main-nav">
+      <header className={`main-nav ${userStatus}`}>
         <nav className="left-nav">
           {this.logoLink()}
           <ul className="nav-links">

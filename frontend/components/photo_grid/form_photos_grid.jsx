@@ -4,7 +4,7 @@ import React from 'react';
 const FormPhotoGrid = ({ photos, updateSelectedPhoto, selectedPhoto }) => {
   const allPhotos = photos.map( (photo, idx) => {
     let selected;
-    selectedPhoto === photo.id ? selected = '-selected' : selected = ''
+    selectedPhoto === photo.id ? selected = '-selected' : selected = '-unselected'
     return (
       <div className={`photo-grid-item${selected}`} key={idx}>
         <a className="photo-link" onClick={() => updateSelectedPhoto(photo.id)}>

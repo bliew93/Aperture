@@ -1,7 +1,7 @@
 json.users do
   json.partial! 'api/users/user', user:@user
-  json.aboutYou @user.about_you
-  json.coverPhotoId @user.cover_photo_id
+  json.about_you @user.about_you
+  json.cover_photo_id @user.cover_photo_id
 end
 
 json.photos do

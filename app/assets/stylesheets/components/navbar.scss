@@ -1,4 +1,4 @@
-.main-nav {
+.main-nav{
   font-family: 'Roboto', sans-serif;
   display: flex;
   justify-content: space-between;
@@ -6,18 +6,39 @@
   z-index: 1;
   position: fixed;
   width: 100%;
-  height: 50px;
+  height: 25px;
+}
+
+.main-nav.logged-out {
   background-color: rgba(0, 0, 0, 0.09);
+  color: white;
 }
 
 .main-nav a {
-  color: white;
   text-shadow: 0.25px 0.25px lightgrey;
-  font-weight: bold;
+  font-weight: 500;
+}
+
+.main-nav.logged-in {
+  background-color: white;
+  color: black;
 }
 
 .left-nav {
+  display: flex;
   flex-direction: row;
+}
+
+.nav-logo {
+  display: flex;
+}
+
+.nav-logo img {
+  margin-right: 20px;
+}
+
+.nav-logo a:last-child {
+  padding-top: 2px;
 }
 
 .left-nav > ul {
@@ -32,11 +53,11 @@
 }
 
 .logo {
-  height: 60px;
-  width: 60px;
+  height: 35px;
+  width: 35px;
   position: relative;
-  top: -6px;
-  right: -12px;
+  top: -7px;
+  right: -15px;
 }
 
 .nav-links {
@@ -51,10 +72,17 @@
 }
 
 .right-nav > a {
-  font-size: 20px;
+  font-size: 17px;
   text-decoration: none;
   margin-left: 20px;
   margin-right: 20px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+.right-nav > a:first-child {
+  margin-right: 2px;
+  padding-top: 3px;
 }
 
 .signup:hover {
@@ -72,19 +100,24 @@
 }
 
 .profile-picture {
-  width: 60px;
+  width: 43px;
   position: relative;
   margin-left: 15px;
   border-radius: 30px;
+  border: 1px solid #eeeff2;
 }
 
 .upload-button {
   padding: 0px 10px 0px 10px;
-  height: 50px;
+  height: 25px;
   display: flex;
   background-color: #41cb56;
-  margin-right: 10px;
+  margin-right: 15px;
   margin-left: 10px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  padding-top: 19px;
+  padding-bottom: 11px;
   color: white;
 }
 

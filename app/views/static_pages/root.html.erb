@@ -1,3 +1,9 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
+<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+
 <% if logged_in? %>
   <script type="text/javascript">
   window.currentUser = <%= render(
@@ -12,7 +18,23 @@
   }
 </script>
 
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<script type="text/javascript">
+  // init Masonry
+  $( document ).ready( () => {
+    var grid = document.querySelector('.photo-grid-contents');
+
+    var msnry = new Masonry( grid, {
+      columnWidth: '.photo-grid-sizer',
+      gutter: '.photo-gutter-sizer',
+      itemSelector: '.photo-grid-item',
+      percentPosition: true,
+    });
+
+    imagesLoaded( grid ).on( 'progress', function() {
+    // layout Masonry after each image loads
+    msnry.layout();
+    });
+  })
+</script>
+
 <main id="root"></main>

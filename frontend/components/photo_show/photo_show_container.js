@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import PhotoShow from './photo_show';
 import { openModal, closeModal } from '../../actions/modal_actions';
-import { fetchPhoto } from '../../actions/photo_actions';
+import { fetchPhoto, createComment } from '../../actions/photo_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return{

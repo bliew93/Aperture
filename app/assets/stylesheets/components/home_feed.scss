@@ -8,11 +8,13 @@
 }
 
 .followed-photo-container {
-  width: 60%;
-  max-width: 900px;
-  height:100vh;
+  width: 50%;
+  height: 100%;
   background-color: white;
   border: 1px solid #eeeff2;
+  position: relative;
+  margin-bottom: 20px;
+  border-radius: 5px;
 }
 
 .followed-photo-header {
@@ -20,23 +22,67 @@
   font-family: 'roboto';
   height: 60px;
   overflow: hidden;
-  margin: 10px 15px;
+  margin: 10px 15px 0px 15px;
   text-align: left;
+}
+
+.followed-photo-header a:hover {
+  opacity: 0.7;
+  filter: alpha(opacity=70);
+  transition: opacity 0.5s;
 }
 
 .followed-photo-header img {
-  height: 100px;
-  width: 100px;
+  height: 50px;
+  width: 50px;
+  border-radius: 30px;
+  border: 1px solid #eeeff2;
+}
+
+.followed-photo-header a:last-child {
+  margin-top: 10px;
+  margin-left: 10px;
+  font-size: 15px;
 }
 
 .followed-photo-img {
-  border-top: 1px solid #eeeff2;
+  // border-top: 1px solid #eeeff2;
   background-color: white;
   max-width: 100%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+    }
+
+.followed-photo-img img {
+  width: 96%;
+  margin: auto;
 }
 
 .followed-photo-footer {
-  border-top: 1px solid #eeeff2;
-  padding: 15px;
+  // border-top: 1px solid #eeeff2;
+  padding: 0px 0px 25px 20px;
   text-align: left;
+  color: #525558;
+}
+
+.followed-photo-footer > h3 {
+  margin-top: 10px;
+}
+
+.followed-photo-footer > span {
+  font-size: 13px;
+}
+
+.followed-photo-footer a {
+  position: absolute;
+  right: 15px;
+}
+
+.material-icons.comment {
+  color: rgba(0, 0, 0, 0.26);
+}
+
+.material-icons.comment:hover {
+   color: rgba(0, 0, 0, 0.54);
+   transition: color 0.5s;
 }

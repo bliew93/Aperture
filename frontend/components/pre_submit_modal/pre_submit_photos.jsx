@@ -1,7 +1,6 @@
 import React from 'react';
-import ImageModal from '../image_modal/image_modal';
 import PhotoCreateFormContainer from '../photo_form/photo_create_form_container';
-import UploadPhotosGrid from '../photo_grid/form_photos_grid';
+import FormPhotosGrid from '../photo_grid/form_photos_grid';
 
 class PreSubmitPhotos extends React.Component {
   constructor(props) {
@@ -18,7 +17,7 @@ class PreSubmitPhotos extends React.Component {
     return (
       <div className='pre-submit-photos'>
         <div className='photo-images'>
-          <UploadPhotosGrid photos={this.props.photos}
+          <FormPhotosGrid photos={this.props.photos}
             updateSelectedPhoto={this.updateSelectedPhoto}
             selectedPhoto={this.state.selectedPhoto}/>
         </div>
