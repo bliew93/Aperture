@@ -29,6 +29,8 @@ class PhotoForm extends React.Component {
     e.preventDefault();
     // will need to improve this. Independent hits to backend not efficient
     if(this.props.formType === 'create') {
+      let uploadCount = 0;
+
       for(let photo in this.state){
         const file = this.props.photos[photo].imageFile;
 
@@ -42,7 +44,7 @@ class PhotoForm extends React.Component {
 
         this.props.processForm(formData);
       }
-
+      
       this.props.closeModal();
     }
     else {
