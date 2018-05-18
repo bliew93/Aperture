@@ -1,6 +1,7 @@
 .manage-photos-container {
   padding-top: 70px;
   width: 100%;
+  overflow: hidden;
 }
 
 .manage-photos-contents {
@@ -9,7 +10,18 @@
 }
 
 .photo-type {
-  width: 20%;
+  width: 15%;
+  background-color: white;
+  border-right: 1px solid #525558;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+.photo-type h2 {
+  font-size: 14px;
+  color: #0099e5;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 .manage-photo-images {
@@ -20,4 +32,5 @@
 
 .edit-photo-form {
   width: 20%;
+  margin-left: 30px;
 }

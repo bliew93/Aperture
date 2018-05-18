@@ -24,6 +24,7 @@ class ManagePhotos extends React.Component {
     return (
       <div className="manage-photos-container">
         <div className="manage-photos-contents">
+
           <div className="photo-type">
             <h2>PHOTOS</h2>
             <ul>

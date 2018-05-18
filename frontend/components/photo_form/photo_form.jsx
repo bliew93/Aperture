@@ -58,8 +58,10 @@ class PhotoForm extends React.Component {
       return <li key={idx}>{error}</li>;
     });
 
+    const edit = this.props.formType === 'edit' ? 'edit-' : '';
+
     return (
-      <div className="photo-form-container" >
+      <div className={`${edit}photo-form-container`} >
         <ul className="errors">
           {errors}
         </ul>

@@ -18,6 +18,12 @@ class PhotoShowModal extends React.Component {
     }
   }
 
+  componentDidUpdate() {
+    // scroll to bottom of comments after new comment is created
+    const el = this.refs.comments;
+    el.scrollTop = el.scrollHeight;
+  }
+
   update(field) {
     return e => this.setState({ [field]: e.target.value });
   }
@@ -34,6 +40,7 @@ class PhotoShowModal extends React.Component {
       return false;
     }
   }
+
 
   followButton(){
     const currentUserFolloweeIds = this.props.currentUser.followee_ids;
@@ -75,24 +82,22 @@ class PhotoShowModal extends React.Component {
               <Link to={`/users/${user.id}`} onClick={() => this.props.closeModal()}>
                 {user.username}
               </Link>
+              <div className="follow-state-button">
+                {this.profileButton()}
+              </div>
             </div>
 
-            <div className="follow-state-button">
-              {this.profileButton()}
-            </div>
 
             <div className="photo-title">
-              <h2>Title</h2>
-              <span>{this.props.photo.title}</span>
+              <h2>{this.props.photo.title}</h2>
             </div>
 
             <div className='photo-body'>
-              <h2>Description</h2>
               <span>{this.props.photo.body}</span>
             </div>
           </div>
 
-          <div className='photo-comments'>
+          <div className='photo-comments' ref='comments'>
             <ul>
               {allComments}
             </ul>
@@ -103,6 +108,7 @@ class PhotoShowModal extends React.Component {
               onKeyDown={this.textareaEnterSubmit}
               onChange={this.update("body")}
               value={this.state.body}
+              placeholder="Add a comment"
               ></textarea>
           </form>
         </div>
