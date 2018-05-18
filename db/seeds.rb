@@ -22,8 +22,14 @@ User.create!(
 )
 
 10.times do |i|
+  username = Faker::RickAndMorty.character
+  all_user = User.all.map{|user| user.username}
+  while(all_user.include?(username))
+    username = Faker::RickAndMorty.character
+  end
+
   User.create!(
-    username: Faker::RickAndMorty.character,
+    username: username,
     password: 'password',
     avatar: URI.parse("https://picsum.photos/200/?random"),
     about_you: Faker::Overwatch.quote,
