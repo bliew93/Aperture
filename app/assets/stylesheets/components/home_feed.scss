@@ -60,7 +60,7 @@
 
 .followed-photo-footer {
   // border-top: 1px solid #eeeff2;
-  padding: 0px 0px 25px 20px;
+  padding: 0px 0px 35px 20px;
   text-align: left;
   color: #525558;
 }
@@ -76,6 +76,7 @@
 .followed-photo-footer a {
   position: absolute;
   right: 15px;
+  bottom: 5px;
 }
 
 .material-icons.comment {

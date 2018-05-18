@@ -37,12 +37,21 @@ User.create!(
   )
 end
 
-200.times do |i|
+rand_photo_size = [
+  "https://picsum.photos/1920/1080/?random",
+  "https://picsum.photos/1920/1080/?random",
+  "https://picsum.photos/1920/1080/?random",
+  "https://picsum.photos/500/500/?random",
+  "https://picsum.photos/500/700/?random",
+  "https://picsum.photos/500/600/?random"
+]
+
+300.times do |i|
   Photo.create!(
     user_id: User.all.sample.id,
     title: Faker::Simpsons.location,
     body: Faker::Simpsons.quote,
-    image: URI.parse("https://picsum.photos/1920/1080/?random")
+    image: URI.parse(rand_photo_size.sample)
   )
 end
 
@@ -61,9 +70,17 @@ end
 end
 
 
-100.times do |i|
+300.times do |i|
   Comment.create!(
     photo_id: Photo.all.sample.id,
     body: Faker::RickAndMorty.quote
   )
+end
+
+User.all.each do |user|
+  if(!user.photos.empty?)
+    user_rand_photo = user.photos.sample.id
+    user.cover_photo_id = user_rand_photo
+    user.save!
+  end
 end
