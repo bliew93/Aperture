@@ -41,6 +41,11 @@
   padding-top: 2px;
 }
 
+.nav-logo a:last-child:hover {
+  opacity: 0.8;
+  transition: opacity 0.25s;
+}
+
 .left-nav > ul {
   display: flex;
   align-items: center;
@@ -107,6 +112,11 @@
   border: 1px solid #eeeff2;
 }
 
+.profile-picture:hover {
+  opacity: 0.8;
+  transition: opacity 0.25s;
+}
+
 .upload-button {
   padding: 0px 10px 0px 10px;
   height: 25px;
@@ -119,6 +129,11 @@
   padding-top: 19px;
   padding-bottom: 11px;
   color: white;
+}
+
+.upload-button:hover {
+  opacity: 0.8;
+  transition: opacity 0.25s;
 }
 
 .upload-button button {

@@ -22,6 +22,11 @@
 	font-size: 13px;
 }
 
+.user-dropdown a:hover {
+	color: #0099e5;
+	transition: color 0.25s;
+}
+
 .manage-profile {
   border-bottom: 0.5px solid lightgrey;
 	padding-bottom: 5px;
