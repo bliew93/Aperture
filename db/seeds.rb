@@ -16,7 +16,7 @@ Comment.destroy_all
 User.create!(
   username: 'guest',
   password: 'password',
-  avatar: URI.parse("http://lorempixel.com/400/200"),
+  avatar: URI.parse("https://picsum.photos/200/?random"),
   about_you: Faker::Overwatch.quote,
   cover_photo_id: 1
 )
