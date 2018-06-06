@@ -42,10 +42,12 @@ class PhotoForm extends React.Component {
           formData.append("photo[image]", file);
         }
 
-        this.props.processForm(formData);
+        this.props.processForm(formData).then( () => {
+          uploadCount += 1;
+          if(uploadCount === Object.keys(this.state).length) { this.props.closeModal(); }
+        });
       }
-      
-      this.props.closeModal();
+
     }
     else {
       const updatedPhoto = this.state[this.props.selectedPhoto];

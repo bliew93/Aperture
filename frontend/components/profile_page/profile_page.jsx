@@ -13,7 +13,7 @@ class ProfilePage extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if(this.props.match.params.userId !== prevProps.match.params.userId){
+    if(this.props.match.params.userId !== prevProps.match.params.userId || this.props.user === undefined) {
       this.props.fetchUser(this.props.match.params.userId);
     }
   }

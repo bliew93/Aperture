@@ -73,7 +73,8 @@ end
 300.times do |i|
   Comment.create!(
     photo_id: Photo.all.sample.id,
-    body: Faker::RickAndMorty.quote
+    body: Faker::RickAndMorty.quote,
+    user_id: User.all.sample.id
   )
 end
 

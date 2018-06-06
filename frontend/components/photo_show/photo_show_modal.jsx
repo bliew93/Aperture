@@ -47,15 +47,23 @@ class PhotoShowModal extends React.Component {
     const userId = parseInt(this.props.user.id);
 
     if(currentUserFolloweeIds.indexOf(userId) === -1) {
-      return <button onClick={() => this.props.followUser(userId)}>Follow User</button>;
+      return (
+        <div className="follow-state-button">
+          <button onClick={() => this.props.followUser(userId)}>Follow User</button>
+        </div>
+      );
     }
     else {
-      return <button onClick={() => this.props.unfollowUser(userId)}>Unfollow User</button>;
+      return (
+        <div className="follow-state-button">
+          <button onClick={() => this.props.unfollowUser(userId)}>Unfollow User</button>
+        </div>
+      );
     }
   }
 
   profileButton(){
-    if(parseInt(this.props.match.params.userId) !== this.props.currentUser.id) {
+    if(parseInt(this.props.user.id) !== this.props.currentUser.id) {
       return this.followButton();
     }
   }
@@ -82,9 +90,7 @@ class PhotoShowModal extends React.Component {
               <Link to={`/users/${user.id}`} onClick={() => this.props.closeModal()}>
                 {user.username}
               </Link>
-              <div className="follow-state-button">
                 {this.profileButton()}
-              </div>
             </div>
 
 
