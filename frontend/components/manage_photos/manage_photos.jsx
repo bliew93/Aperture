@@ -2,6 +2,8 @@ import React from 'react';
 import EditPhotoForm from '../photo_form/photo_edit_form_container';
 import FormPhotosGrid from '../photo_grid/form_photos_grid';
 import { isEmpty } from 'lodash';
+import Masonry from 'masonry-layout';
+import imagesLoaded from 'imagesloaded';
 
 class ManagePhotos extends React.Component {
   constructor(props) {

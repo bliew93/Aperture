@@ -2,6 +2,8 @@ import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import PhotoGrid from '../photo_grid/photo_grid';
 import { isEmpty } from 'lodash';
+import Masonry from 'masonry-layout';
+import imagesLoaded from 'imagesloaded';
 
 class ProfilePage extends React.Component {
   constructor(props) {
