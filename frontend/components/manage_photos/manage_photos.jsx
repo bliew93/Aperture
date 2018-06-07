@@ -16,6 +16,24 @@ class ManagePhotos extends React.Component {
     }
   }
 
+  componentDidUpdate() {
+    $( document ).ready( () => {
+      var grid = document.querySelector('.photo-grid-contents');
+
+      var msnry = new Masonry( grid, {
+        columnWidth: '.photo-grid-sizer',
+        gutter: '.photo-gutter-sizer',
+        itemSelector: '.photo-grid-item-unselected, .photo-grid-item-selected',
+        percentPosition: true,
+      });
+
+      imagesLoaded( grid ).on( 'progress', function() {
+        // layout Masonry after each image loads
+        msnry.layout();
+      });
+    });
+  }
+
   updateSelectedPhoto(photoId) {
     this.setState({ selectedPhoto: photoId });
   }

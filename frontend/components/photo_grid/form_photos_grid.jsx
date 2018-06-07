@@ -17,6 +17,8 @@ const FormPhotoGrid = ({ photos, updateSelectedPhoto, selectedPhoto }) => {
   return (
     <div className="photo-grid-container">
       <div className="photo-grid-contents">
+        <div className='photo-grid-sizer'></div>
+        <div className='photo-gutter-sizer'></div>
         {allPhotos}
       </div>
     </div>
