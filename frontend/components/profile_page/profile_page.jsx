@@ -16,6 +16,22 @@ class ProfilePage extends React.Component {
     if(this.props.match.params.userId !== prevProps.match.params.userId || this.props.user === undefined) {
       this.props.fetchUser(this.props.match.params.userId);
     }
+
+    $( document ).ready( () => {
+      var grid = document.querySelector('.photo-grid-contents');
+
+      var msnry = new Masonry( grid, {
+        columnWidth: '.photo-grid-sizer',
+        gutter: '.photo-gutter-sizer',
+        itemSelector: '.photo-grid-item',
+        percentPosition: true,
+      });
+
+      imagesLoaded( grid ).on( 'progress', function() {
+        // layout Masonry after each image loads
+        msnry.layout();
+      });
+    });
   }
 
   followButton(){
