@@ -70,7 +70,7 @@ end
 end
 
 
-300.times do |i|
+400.times do |i|
   Comment.create!(
     photo_id: Photo.all.sample.id,
     body: Faker::RickAndMorty.quote,

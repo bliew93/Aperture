@@ -28,8 +28,9 @@ class ManagePhotos extends React.Component {
           <div className="photo-type">
             <h2>PHOTOS</h2>
             <ul>
-              <li>
+              <li className="photo-type-item">
                 <a>All Photos</a>
+                <span>{Object.keys(this.props.photos).length}</span>
               </li>
             </ul>
           </div>

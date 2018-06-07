@@ -7,14 +7,15 @@
 .manage-photos-contents {
   display: flex;
   height: 100%;
+  background: white;
 }
 
 .photo-type {
   width: 15%;
-  background-color: white;
   border-right: 1px solid #525558;
   margin-bottom: 10px;
   margin-left: 10px;
+  padding-top: 20px;
 }
 
 .photo-type h2 {
@@ -22,12 +23,27 @@
   color: #0099e5;
   font-weight: bold;
   text-transform: uppercase;
+  margin-bottom: 15px;
 }
 
 .manage-photo-images {
   overflow-y: auto;
   width: 60%;
   max-height: 750px;
+  padding-top: 20px;
+}
+
+.photo-type-item {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 10px;
+}
+
+.photo-type-item:hover {
+  background-color: gainsboro;
+  opacity: 0.7;
+  transition: opacity .2s;
+
 }
 
 .edit-photo-form {
