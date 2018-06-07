@@ -11,7 +11,7 @@ const usersReducer = (state = {}, action) => {
     case RECEIVE_USER:
     return { [action.payload.users.id]: action.payload.users };
     case RECEIVE_PHOTO:
-      return { [action.payload.users.id]: action.payload.users };
+      return action.payload.users;
     default:
       return state;
   }

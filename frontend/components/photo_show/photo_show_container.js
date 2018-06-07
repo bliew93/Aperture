@@ -3,13 +3,33 @@ import PhotoShow from './photo_show';
 import { openModal, closeModal } from '../../actions/modal_actions';
 import { fetchPhoto, createComment } from '../../actions/photo_actions';
 import { followUser, unfollowUser } from '../../actions/user_actions';
+import { isEmpty } from 'lodash';
 
 const mapStateToProps = (state, ownProps) => {
+  let photosUser, commentUserIds, commentUsers;
+  const currentPhoto = state.entities.photos[ownProps.match.params.photoId];
+
+  if(currentPhoto) {
+    photosUser = state.entities.users[currentPhoto.user_id];
+
+    if(!_.isEmpty(state.entities.comments)) {
+      commentUserIds = Object.keys(state.entities.users).filter(el => el !== currentPhoto.user_id.toString());
+      commentUsers = commentUserIds.reduce((acc, el) => {acc[el] = state.entities.users[el]; return acc;}, {});
+    }
+    else {
+      commentUsers = {};
+    }
+  }
+  else {
+    photosUser = {};
+  }
+
   return{
-    photo: state.entities.photos[ownProps.match.params.photoId],
+    photo: currentPhoto,
     comments: state.entities.comments,
-    user: state.entities.users[Object.keys(state.entities.users)[0]],
+    user: photosUser,
     currentUser: state.session.currentUser,
+    commentUsers: commentUsers,
     modalType: 'photo-show'
   };
 };

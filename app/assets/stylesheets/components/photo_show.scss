@@ -23,9 +23,14 @@
   color: #525558;
 }
 
-.profile-img {
+.profile-show-container {
   display: flex;
+  flex-direction: row;
+}
+
+.profile-img {
   margin-bottom: 10px;
+  margin-right: 20px;
 }
 
 .profile-img img {
@@ -39,6 +44,30 @@
   position: relative;
   left: 10px;
   width: 100%;
+}
+
+.user-comment-container {
+  display: flex;
+  margin: 10px;
+}
+
+.user-comment-text a {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.user-comment-text {
+  margin-top: 5px;
+}
+
+.user-comment-img {
+  margin-right: 5px;
+}
+
+.user-comment-img img {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%
 }
 
 .photo-show-info {
@@ -73,16 +102,16 @@
 }
 
 .follow-state-button {
-  display: flex;
-  width: fit-content;
-  height: fit-content;
+  display: block;
+  height: 20px;
+  width: 75px;
   padding: 5px 8px 5px 8px;
   background-color: #41cb56;
-  right: 95px;
   border: 1px #41cb56;
   border-radius: 4px;
   position: relative;
-  top: 25px;
+  text-align: center;
+  margin-top: 5px;
 }
 
 .follow-state-button button {
@@ -96,23 +125,23 @@
   font-size: 14px;
   height: 60%;
   width: 97%;
-  border: 1px solid #525558;
+  border: 1px solid lightgrey;
   border-radius: 4px;
   overflow: auto;
+  margin-left: 4px;
 }
 
 .photo-comments > span {
   color: white;
 }
 
-.photo-comments li {
-  padding-bottom: 10px;
-}
-
 .photo-comments-form {
-  border: 1px solid #525558;
+  border-bottom: 1px solid lightgrey;
+  border-left: 1px solid lightgrey;
+  border-right: 1px solid lightgrey;
   resize: none;
   width: 97%;
+  margin-left: 4px;
 }
 
 .photo-comments-form textarea {

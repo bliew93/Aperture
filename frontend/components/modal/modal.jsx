@@ -29,6 +29,7 @@ function Modal({modal, closeModal}) {
         createComment={modal.createComment}
         closeModal={modal.closeModal}
         currentUser={modal.currentUser}
+        commentUsers={modal.commentUsers}
         followUser={modal.followUser}
         unfollowUser={modal.unfollowUser}/>;
       break;

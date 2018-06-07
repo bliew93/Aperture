@@ -71,8 +71,26 @@ class PhotoShowModal extends React.Component {
   render() {
     const user = this.props.user || {id: '', image_url: ''};
     const comments = Object.values(this.props.comments);
+    const commentUsers = this.props.commentUsers;
+
     const allComments = comments.map( (comment) => {
-      return <li key={comment.id}>{comment.body}</li>;
+      const commentUser = commentUsers[comment.user_id] ? commentUsers[comment.user_id] : this.props.currentUser;
+
+      return (
+        <li key={comment.id} className="user-comment-container">
+          <div className="user-comment-img">
+            <Link to={`/users/${comment.user_id}`} onClick={() => this.props.closeModal()}>
+              <img src={commentUser.image_url}></img>
+            </Link>
+          </div>
+          <div className="user-comment-text">
+            <Link to={`/users/${comment.user_id}`} onClick={() => this.props.closeModal()}>
+              {commentUser.username}
+            </Link>
+            {comment.body}
+          </div>
+        </li>
+      );
     });
 
     return (
@@ -83,16 +101,19 @@ class PhotoShowModal extends React.Component {
 
         <div className='photo-text-container'>
           <div className='photo-show-info'>
-            <div className="profile-img">
-              <Link to={`/users/${user.id}`} onClick={() => this.props.closeModal()}>
-                <img src={user.image_url}></img>
-              </Link>
-              <Link to={`/users/${user.id}`} onClick={() => this.props.closeModal()}>
-                {user.username}
-              </Link>
+            <div className="profile-show-container">
+              <div className="profile-img">
+                <Link to={`/users/${user.id}`} onClick={() => this.props.closeModal()}>
+                  <img src={user.image_url}></img>
+                </Link>
+              </div>
+              <div className="profile-text">
+                <Link to={`/users/${user.id}`} onClick={() => this.props.closeModal()}>
+                  {user.username}
+                </Link>
                 {this.profileButton()}
+              </div>
             </div>
-
 
             <div className="photo-title">
               <h2>{this.props.photo.title}</h2>

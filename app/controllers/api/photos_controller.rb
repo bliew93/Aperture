@@ -41,6 +41,8 @@ class Api::PhotosController < ApplicationController
 
   def create_comment
     @comment = Comment.new(photo_id: params[:id], body: comment_params[:body])
+    @comment.user_id = current_user.id
+    
     if @comment.save
       render 'api/comments/show'
     else

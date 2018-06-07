@@ -12,5 +12,13 @@ json.comments do
 end
 
 json.users do
-  json.partial! 'api/users/user', user:@photo.user
+  json.set! @photo.user.id do
+    json.partial! 'api/users/user', user:@photo.user
+  end
+  @photo.comments.each do |comment|
+    json.set! comment.user.id do
+      json.extract! comment.user, :id, :username
+      json.image_url asset_path(comment.user.avatar.url)
+    end
+  end
 end
